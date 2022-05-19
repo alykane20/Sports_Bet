@@ -5,3 +5,4 @@ class BetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bet
         fields =['id', 'pick', 'amount_bet', 'won', 'user_id']
+        depth = 1

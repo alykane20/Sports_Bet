@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'authentication.apps.AuthenticationConfig',
     'corsheaders',
     'cars.apps.CarsConfig',
-    'bets'
+    'bets',
+    'games'
 ]
 
 MIDDLEWARE = [

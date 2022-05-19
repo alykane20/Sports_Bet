@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'cars.apps.CarsConfig',
     'bets',
-    'games'
+    'games',
 ]
 
 MIDDLEWARE = [

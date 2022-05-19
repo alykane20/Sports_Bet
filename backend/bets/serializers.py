@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from models import Bet
+from .models import Bet
 
 class BetSerializer(serializers.ModelSerializer):
     class Meta:

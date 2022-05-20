@@ -27,7 +27,7 @@ function App() {
   
       async function getEvents(){
           
-          let response = await axios.get(`https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?apiKey=${KEY}&regions=us&markets=h2h,spreads&oddsFormat=american`)
+          let response = await axios.get(`https://api.the-odds-api.com/v4/sports/basketball/odds/?apiKey=${KEY}&regions=us&markets=h2h&oddsFormat=american`)
           console.log(response.data)
           setGetGames(response.data)
       }
@@ -35,7 +35,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      {/* <DisplayOpenGames/> */}
+      <DisplayOpenGames getGames={getGames}/>
       <Routes>
         <Route
           path="/"

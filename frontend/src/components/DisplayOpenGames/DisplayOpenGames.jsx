@@ -3,35 +3,31 @@ import axios from "axios";
 import {KEY} from '../../localKey'
 
 const DisplayOpenGames  = (props) => {
-const [getGames, setGetGames]= useState([]);
-
-useEffect(() => {
-    getEvents()
-    }, [])
-
-    async function getEvents(){
-        const apiKey = {KEY}
-        const sportKey = 'upcoming'
-        const regions = 'us'
-        const markets = 'h2h'
-        const oddsFormat = 'american'
-        
-        let response = await axios.get(`https://api.the-odds-api.com/v4/sports/${sportKey}/odds`, {
-            params:{
-            apiKey,
-            regions,
-            markets,
-            oddsFormat,
-            }
-        })
-        .then (response => {
-            console.log(JSON.stringify(response.data))
-        setGetGames(response.data)
-      })}
-
-    
     return( 
-        <div>getEvents()</div>
+        <div>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Sport</th>
+                        <th>Game Date</th>
+                        <th>Home Team</th>
+                        <th>Away Team</th>
+                    </tr>
+                
+                   {props.getGames && props.getGames.map((game)=>(
+                    <tr>
+                        <td>{game.sport_title}</td>
+                        <td>{game.commence_time}</td>
+                        <td>{game.home_team}</td>
+                        {/* <td>{game.bookmakers.markets.outcomes}</td> */}
+                        <td>{game.away_team}</td>
+                        
+                    </tr>
+                    
+                    ))}
+                </tbody>
+            </table>
+        </div>
      );
 }
  

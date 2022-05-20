@@ -6,5 +6,7 @@ class Game(models.Model):
     sport_category = models.CharField(max_length=150)
     team_one = models.CharField(max_length=150)
     team_two = models.CharField(max_length=150)
-    winning_team = models.CharField(max_length=150)
+    winning_team = models.CharField(default="TBD", max_length=150)
+
+    
 

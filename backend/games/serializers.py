@@ -6,3 +6,5 @@ class GameSerializer(serializers.ModelSerializer):
         model = Game
         fields =['id', 'sport_category', 'team_one', 'team_two', 'winning_team', 'bet_id']
         depth = 1
+    
+    bet_id = serializers.IntegerField(write_only=True)

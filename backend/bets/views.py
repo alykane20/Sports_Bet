@@ -4,9 +4,10 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.decorators import api_view, permission_classes
 from .models import Bet
 from .serializers import BetSerializer
+from django.shortcuts import get_object_or_404
 
 
-@api_view(['POST', 'GET'])
+@api_view(['POST', 'GET', 'PATCH'])
 @permission_classes([IsAuthenticated])
 def user_bets(request):
     if request.method == 'POST':
@@ -19,3 +20,14 @@ def user_bets(request):
         bet = Bet.objects.filter(user_id=request.user.id)
         serializer = BetSerializer(bet, many=True)
         return Response(serializer.data)
+
+@api_view(['PATCH'])
+@permission_classes([IsAuthenticated])
+def update_bet(request, pk):       
+    if request.method == 'PATCH':
+        bet = get_object_or_404(Bet, pk=pk)
+        bet.won = True
+        serializer = BetSerializer(bet, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)

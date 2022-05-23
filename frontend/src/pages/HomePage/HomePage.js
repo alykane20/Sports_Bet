@@ -30,6 +30,7 @@ const HomePage = () => {
     <div className="container">
       <h1>Home Page for {user.username}!</h1>
       <p>Balance: {user.fund_balance}</p>
+      <p>Status: {user.status}</p>
       <p>My open bets:</p>
       {bets &&
         bets.map((bet) => (

@@ -1,7 +1,7 @@
 import SearchBar from "../SearchBar/SearchBar";
+import { Link } from "react-router-dom";
 
 const DisplayOpenGames  = (props) => {
-
 
     return( 
         <div>
@@ -24,7 +24,9 @@ const DisplayOpenGames  = (props) => {
                         <td>{game.bookmakers[0].markets[0].outcomes[0].price}</td>
                         <td>{game.bookmakers[0].markets[0].outcomes[1].name}</td>
                         <td>{game.bookmakers[0].markets[0].outcomes[1].price}</td>
+                        <td><Link to="/placebet">Place bet!</Link></td>
                     </tr>
+                    
                     ))}
                 </tbody>
             </table>

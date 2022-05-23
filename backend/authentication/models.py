@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    fund_balance = models.CharField(default="100", max_length=300)
+    fund_balance = models.CharField(default=100, max_length=300)
     total_bets_won = models.IntegerField(default=0)
     status = models.CharField(default="Newbie", max_length=100)
     current_bets = models.CharField(max_length=500)

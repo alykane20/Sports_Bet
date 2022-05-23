@@ -9,11 +9,12 @@ import axios from "axios";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
-import DisplayOpenGames from "./components/DisplayOpenGames/DisplayOpenGames";
+import PlaceBet from "./pages/PlaceBet/PlaceBet";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
+import DisplayOpenGames from "./components/DisplayOpenGames/DisplayOpenGames";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
@@ -25,7 +26,7 @@ function App() {
       getEvents()
       }, [])
   
-      async function getEvents(searchTerm = 'soccer'){
+      async function getEvents(searchTerm = 'basketball'){
           
           let response = await axios.get(`https://api.the-odds-api.com/v4/sports/${searchTerm}/odds/?apiKey=${KEY}&regions=us&markets=h2h&oddsFormat=american`)
           console.log(response.data)
@@ -47,6 +48,12 @@ function App() {
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route 
+        path="/placebet" 
+        element={
+        <PrivateRoute>
+          <PlaceBet />
+        </PrivateRoute>}/>
       </Routes>
       <Footer />
     </div>

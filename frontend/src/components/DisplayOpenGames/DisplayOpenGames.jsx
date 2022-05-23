@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react/cjs/react.production.min";
 import axios from "axios";
 import {KEY} from '../../localKey'
+import SearchBar from "../SearchBar/SearchBar";
 
 const DisplayOpenGames  = (props) => {
     return( 
+       
         <div>
+            <SearchBar getEvents={props.getEvents}/>
             <table>
                 <tbody>
                     <tr>
@@ -15,15 +18,12 @@ const DisplayOpenGames  = (props) => {
                     </tr>
                 
                    {props.getGames && props.getGames.map((game)=>(
-                    <tr>
+                    <tr key={game.id}>
                         <td>{game.sport_title}</td>
                         <td>{game.commence_time}</td>
                         <td>{game.home_team}</td>
-                        {/* <td>{game.bookmakers.markets.outcomes}</td> */}
                         <td>{game.away_team}</td>
-                        
                     </tr>
-                    
                     ))}
                 </tbody>
             </table>

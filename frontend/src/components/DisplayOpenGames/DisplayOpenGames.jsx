@@ -5,7 +5,6 @@ import SearchBar from "../SearchBar/SearchBar";
 
 const DisplayOpenGames  = (props) => {
     return( 
-       
         <div>
             <SearchBar getEvents={props.getEvents}/>
             <table>
@@ -16,7 +15,6 @@ const DisplayOpenGames  = (props) => {
                         <th>Home Team</th>
                         <th>Away Team</th>
                     </tr>
-                
                    {props.getGames && props.getGames.map((game)=>(
                     <tr key={game.id}>
                         <td>{game.sport_title}</td>

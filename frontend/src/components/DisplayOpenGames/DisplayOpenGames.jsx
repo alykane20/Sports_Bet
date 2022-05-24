@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 
 const DisplayOpenGames  = (props) => {
 
+    const handleClick = ()=> {
+    // call setSelectedGame from props
+    // navigate to placebet
+}
     return( 
         <div>
             <SearchBar getEvents={props.getEvents}/>
@@ -24,7 +28,7 @@ const DisplayOpenGames  = (props) => {
                         <td>{game.bookmakers[0].markets[0].outcomes[0].price}</td>
                         <td>{game.bookmakers[0].markets[0].outcomes[1].name}</td>
                         <td>{game.bookmakers[0].markets[0].outcomes[1].price}</td>
-                        <td><Link to="/placebet">Place bet!</Link></td>
+                        <td></td>
                     </tr>
                     
                     ))}

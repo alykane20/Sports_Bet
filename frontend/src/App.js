@@ -21,6 +21,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
   const [getGames, setGetGames]= useState([]);
+  const [selectedGame, setSelectedGame] = useState([])
 
   useEffect(() => {
       getEvents()
@@ -52,7 +53,7 @@ function App() {
         path="/placebet" 
         element={
         <PrivateRoute>
-          <PlaceBet />
+          <PlaceBet selectedGame={selectedGame} />
         </PrivateRoute>}/>
       </Routes>
       <Footer />

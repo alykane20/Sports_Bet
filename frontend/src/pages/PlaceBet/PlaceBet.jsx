@@ -6,11 +6,16 @@ import useAuth from "../../hooks/useAuth";
 import useCustomForm from "../../hooks/useCustomForm";
 
 let initialValues = {
-    user: '',
     pick: '',
     amount_bet: '',
-    won: false
+    won: false,
+    team_one: {},
+    team_two: {},
+    winning_team: 'TBD',
+    payout: 'TBD',
+    game_id: {}
 }
+
 
 const PlaceBet = (props) => {
     const [user, token] = useAuth()
@@ -30,6 +35,7 @@ const PlaceBet = (props) => {
         }}
     return ( 
         <div>
+            <div>{user.status}</div>
             <form onSubmit={handleSubmit}>
                 <label>
                     Pick to win: {" "}
@@ -48,8 +54,7 @@ const PlaceBet = (props) => {
                     name="amount_bet"
                     value={formData.amount_bet}
                     onChange={handleInputChange}
-                    />
-                    
+                    />                   
                 </label>
                 <button>Confirm bet</button>
             </form>

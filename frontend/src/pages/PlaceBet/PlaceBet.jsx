@@ -7,7 +7,7 @@ import useCustomForm from "../../hooks/useCustomForm";
 
 const PlaceBet = (props) => {
     console.log(props.selectedGame)
-    console.log(props.selectedGame.bookmakers[0].markets[0].outcomes[0].name)
+    
   
     let initialValues = {
         pick: '',

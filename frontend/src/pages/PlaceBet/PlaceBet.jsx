@@ -20,16 +20,14 @@ const PlaceBet = (props) => {
     async function placeNewBet(){
         try {
             let response = await axios.post("http://127.0.0.1:8000/api/bets/", formData, {
-                heades:{
+                headers:{
                     Authorization: 'Bearer ' + token
                 }
             })
             navigate("/")
         } catch (error) {
             console.log(error)
-        }
-
-    }
+        }}
     return ( 
         <div>
             <form onSubmit={handleSubmit}>
@@ -42,14 +40,16 @@ const PlaceBet = (props) => {
                     onChange={handleInputChange}
                     />
                 </label>
+
                 <label>
                     Amount to bet: {" "}
                     <input
                     type="text"
-                    name="bet"
+                    name="amount_bet"
                     value={formData.amount_bet}
                     onChange={handleInputChange}
                     />
+                    
                 </label>
                 <button>Confirm bet</button>
             </form>

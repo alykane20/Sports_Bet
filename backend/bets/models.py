@@ -7,3 +7,7 @@ class Bet(models.Model):
     pick = models.CharField(max_length=150)
     amount_bet = models.CharField(max_length=200)
     won = models.BooleanField(default=False)
+    team_one = models.CharField(max_length=150)
+    team_two = models.CharField(max_length=150)
+    winning_team = models.CharField(default="TBD", max_length=150)
+    game_id = models.CharField(max_length=150)

@@ -6,15 +6,18 @@ import useAuth from "../../hooks/useAuth";
 import useCustomForm from "../../hooks/useCustomForm";
 
 const PlaceBet = (props) => {
+    console.log(props.selectedGame)
+    console.log(props.selectedGame.bookmakers[0].markets[0].outcomes[0].name)
+  
     let initialValues = {
         pick: '',
         amount_bet: '',
         won: false,
-        team_one: {},
-        team_two: {},
+        team_one: props.selectedGame.bookmakers[0].markets[0].outcomes[0].name,
+        team_two: props.selectedGame.bookmakers[0].markets[0].outcomes[1].name,
         winning_team: 'TBD',
         payout: 'TBD',
-        game_id: {}
+        game_id: props.selectedGame.id
     }
     const [user, token] = useAuth()
     const navigate = useNavigate()

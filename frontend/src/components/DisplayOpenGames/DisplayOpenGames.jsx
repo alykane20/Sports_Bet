@@ -4,8 +4,10 @@ import { useNavigate } from "react-router-dom";
 
 const DisplayOpenGames  = (props) => {
     const navigate = useNavigate();
-    const handleClick = ()=> {
-    props.setSelectedGame(game.id)
+
+    const handleClick = (event, game)=> {
+    event.preventDefault();
+    props.setSelectedGame(game)
     navigate("/placebet")
 }
     return( 
@@ -29,7 +31,7 @@ const DisplayOpenGames  = (props) => {
                         <td>{game.bookmakers[0].markets[0].outcomes[0].price}</td>
                         <td>{game.bookmakers[0].markets[0].outcomes[1].name}</td>
                         <td>{game.bookmakers[0].markets[0].outcomes[1].price}</td>
-                        <td><button onClick={handleClick(game.id)}> Select Game</button></td>
+                        <td><button onClick={(event) => handleClick(event, game)}> Select Game</button></td>
                     </tr>
                     
                     ))}

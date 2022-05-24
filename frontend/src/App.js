@@ -53,7 +53,7 @@ function App() {
         path="/placebet" 
         element={
         <PrivateRoute>
-          <PlaceBet selectedGame={selectedGame} />
+          {selectedGame && <PlaceBet selectedGame={selectedGame} />}
         </PrivateRoute>}/>
       </Routes>
       <Footer />

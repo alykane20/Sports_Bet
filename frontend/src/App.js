@@ -37,7 +37,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      {getGames && <DisplayOpenGames getGames={getGames} getEvents={getEvents}/>}
+      {getGames && <DisplayOpenGames setSelectedGame={setSelectedGame} getGames={getGames} getEvents={getEvents}/>}
       <Routes>
         <Route
           path="/"

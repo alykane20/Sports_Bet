@@ -5,19 +5,17 @@ import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import useCustomForm from "../../hooks/useCustomForm";
 
-let initialValues = {
-    pick: '',
-    amount_bet: '',
-    won: false,
-    team_one: {},
-    team_two: {},
-    winning_team: 'TBD',
-    payout: 'TBD',
-    game_id: {}
-}
-
-
 const PlaceBet = (props) => {
+    let initialValues = {
+        pick: '',
+        amount_bet: '',
+        won: false,
+        team_one: {},
+        team_two: {},
+        winning_team: 'TBD',
+        payout: 'TBD',
+        game_id: {}
+    }
     const [user, token] = useAuth()
     const navigate = useNavigate()
     const [formData, handleInputChange, handleSubmit] = useCustomForm(initialValues, placeNewBet)
@@ -35,7 +33,6 @@ const PlaceBet = (props) => {
         }}
     return ( 
         <div>
-            <div>{user.status}</div>
             <form onSubmit={handleSubmit}>
                 <label>
                     Pick to win: {" "}

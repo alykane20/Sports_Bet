@@ -10,4 +10,5 @@ class Bet(models.Model):
     team_one = models.CharField(max_length=150)
     team_two = models.CharField(max_length=150)
     winning_team = models.CharField(default="TBD", max_length=150)
+    payout = models.CharField(default=0, max_length=150)
     game_id = models.CharField(max_length=150)

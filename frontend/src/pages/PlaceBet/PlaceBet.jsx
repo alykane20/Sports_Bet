@@ -54,6 +54,13 @@ const PlaceBet = (props) => {
                     onChange={handleInputChange}
                     />                   
                 </label>
+                <label>
+                Odds: {" "}
+                    <input
+                    type="number"
+                    name="payout"
+                    />
+                </label>
                 <button type='submit'>Confirm bet</button>
             </form>
         </div>

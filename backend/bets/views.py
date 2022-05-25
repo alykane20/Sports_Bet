@@ -13,7 +13,7 @@ def user_bets(request):
     if request.method == 'POST':
         serializer = BetSerializer(data=request.data)
         if serializer.is_valid():
-            request.user.fund_balance -= request.data['amount_bet']
+            request.user.fund_balance -= int(request.data['amount_bet'])
             request.user.save()
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)

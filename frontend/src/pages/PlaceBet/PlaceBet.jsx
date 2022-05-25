@@ -32,12 +32,7 @@ const PlaceBet = (props) => {
         } catch (error) {
             console.log(error)
         }}
-
-    // const deductBet = (event)=>{
-    //     event.preventDefault();
-    //     user.fund_balance-=formData.amount_bet
-    //     console.log(user.fund_balance)
-
+       
     return ( 
         <div>
             <form onSubmit={handleSubmit}>
@@ -53,7 +48,7 @@ const PlaceBet = (props) => {
                 <label>
                     Amount to bet: {" "}
                     <input
-                    type="text"
+                    type="number"
                     name="amount_bet"
                     value={formData.amount_bet}
                     onChange={handleInputChange}

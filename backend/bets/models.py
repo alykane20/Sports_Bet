@@ -5,7 +5,7 @@ from authentication.models import User
 class Bet(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     pick = models.CharField(max_length=150)
-    amount_bet = models.CharField(max_length=200)
+    amount_bet = models.IntegerField()
     won = models.BooleanField(default=False)
     team_one = models.CharField(max_length=150)
     team_two = models.CharField(max_length=150)

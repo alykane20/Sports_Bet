@@ -7,12 +7,14 @@ from .serializers import BetSerializer
 from django.shortcuts import get_object_or_404
 
 
-@api_view(['POST', 'GET', 'PATCH'])
+@api_view(['POST', 'GET'])
 @permission_classes([IsAuthenticated])
 def user_bets(request):
     if request.method == 'POST':
         serializer = BetSerializer(data=request.data)
         if serializer.is_valid():
+            request.user.fund_balance -= request.data['amount_bet']
+            request.user.save()
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

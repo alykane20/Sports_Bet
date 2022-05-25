@@ -6,9 +6,7 @@ import useAuth from "../../hooks/useAuth";
 import useCustomForm from "../../hooks/useCustomForm";
 
 const PlaceBet = (props) => {
-    console.log(props.selectedGame)
-    
-  
+    // console.log(props.selectedGame)
     let initialValues = {
         pick: '',
         amount_bet: '',
@@ -34,6 +32,12 @@ const PlaceBet = (props) => {
         } catch (error) {
             console.log(error)
         }}
+
+    // const deductBet = (event)=>{
+    //     event.preventDefault();
+    //     user.fund_balance-=formData.amount_bet
+    //     console.log(user.fund_balance)
+
     return ( 
         <div>
             <form onSubmit={handleSubmit}>
@@ -46,7 +50,6 @@ const PlaceBet = (props) => {
                     onChange={handleInputChange}
                     />
                 </label>
-
                 <label>
                     Amount to bet: {" "}
                     <input
@@ -56,7 +59,7 @@ const PlaceBet = (props) => {
                     onChange={handleInputChange}
                     />                   
                 </label>
-                <button>Confirm bet</button>
+                <button type='submit'>Confirm bet</button>
             </form>
         </div>
      );

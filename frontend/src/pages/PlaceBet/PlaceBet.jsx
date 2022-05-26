@@ -4,26 +4,31 @@ import axios from "axios";
 
 import useAuth from "../../hooks/useAuth";
 import useCustomForm from "../../hooks/useCustomForm";
+import { useState } from "react/cjs/react.production.min";
 
 const PlaceBet = (props) => {
-    // console.log(props.selectedGame)
+    const [pick, setPick] = useState('');
+    const [amountBet, setAmountBet] = useState('');
+    const [money, setMoney] = useState('')
+    const [payout, setPayout] = useState('')
+
     let initialValues = {
-        pick: '',
-        amount_bet: '',
+        pick: pick,
+        amount_bet: amountBet,
         won: false,
         team_one: props.selectedGame.bookmakers[0].markets[0].outcomes[0].name,
         team_two: props.selectedGame.bookmakers[0].markets[0].outcomes[1].name,
         winning_team: 'TBD',
-        payout: 'TBD',
+        payout: payout,
         game_id: props.selectedGame.id
     }
     const [user, token] = useAuth()
     const navigate = useNavigate()
-    const [formData, handleInputChange, handleSubmit] = useCustomForm(initialValues, placeNewBet)
+    // const [formData] = useCustomForm(initialValues)
     
     async function placeNewBet(){
         try {
-            let response = await axios.post("http://127.0.0.1:8000/api/bets/", formData, {
+            let response = await axios.post("http://127.0.0.1:8000/api/bets/", initialValues, {
                 headers:{
                     Authorization: 'Bearer ' + token
                 }
@@ -32,7 +37,19 @@ const PlaceBet = (props) => {
         } catch (error) {
             console.log(error)
         }}
-       
+    
+    function betCalculator(moneyLine) {
+        var odds;
+        var betAmount = amountBet;   
+        odds = moneyLine >= 0 ? (moneyLine / 100) + 1 : (100 / Math.abs(moneyLine)) + 1; 
+        
+        setPayout(parseFloat((odds * betAmount).toFixed(2)));
+    }
+    const handleSubmit = () => {
+        betCalculator(money);
+        placeNewBet()
+    }
+    console.log(payout)
     return ( 
         <div>
             <form onSubmit={handleSubmit}>
@@ -41,8 +58,8 @@ const PlaceBet = (props) => {
                     <input
                     type="text"
                     name="pick"
-                    value={formData.pick}
-                    onChange={handleInputChange}
+                    value={pick}
+                    onChange={(event) => setPick(event.target.value)}
                     />
                 </label>
                 <label>
@@ -50,15 +67,17 @@ const PlaceBet = (props) => {
                     <input
                     type="number"
                     name="amount_bet"
-                    value={formData.amount_bet}
-                    onChange={handleInputChange}
+                    value={amountBet}
+                    onChange={(event) => setAmountBet(event.target.value)}
                     />                   
                 </label>
                 <label>
-                Odds: {" "}
+                MoneyLine: {" "}
                     <input
                     type="number"
                     name="payout"
+                    value={money}
+                    onChange={(event) => setMoney(event.target.value)}
                     />
                 </label>
                 <button type='submit'>Confirm bet</button>

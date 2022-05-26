@@ -8,7 +8,14 @@ const PayoutCalc = (props) => {
     return parseFloat((odds * betAmount).toFixed(2));
 }
 
+    return (
+        <div></div>
+      );
 }
+ 
+export default PayoutCalc;
+
+
 // console.log(betCalculator(130)); // Result / Expected = 1150.00
 // console.log(betCalculator(-130)); // Result I am getting = 115.38 // Expected = 884.62
 
@@ -21,11 +28,3 @@ const PayoutCalc = (props) => {
 
 // } else {
 //     odds = (-100 / moneyLine) + 1;
-
-
-    return (
-        <div></div>
-      );
-}
- 
-export default PayoutCalc;

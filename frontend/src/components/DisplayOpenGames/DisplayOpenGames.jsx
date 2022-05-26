@@ -19,9 +19,9 @@ const DisplayOpenGames  = (props) => {
                         <th>Sport</th>
                         <th>Game Date</th>
                         <th>Home Team</th>
-                        <th>Odds</th>
+                        <th>MoneyLine</th>
                         <th>Away Team</th>
-                        <th>Odds</th>
+                        <th>MoneyLine</th>
                     </tr>
                    {props.getGames.map((game)=>(
                     <tr key={game.id}>

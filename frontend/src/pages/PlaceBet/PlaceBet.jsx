@@ -1,23 +1,42 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
 import useAuth from "../../hooks/useAuth";
-import useCustomForm from "../../hooks/useCustomForm";
-import { useState } from "react/cjs/react.production.min";
+// import useCustomForm from "../../hooks/useCustomForm";
+import { useState, useEffect } from "react";
 
 const PlaceBet = (props) => {
     const [pick, setPick] = useState('');
     const [amountBet, setAmountBet] = useState('');
-    const [money, setMoney] = useState('')
-    const [payout, setPayout] = useState('')
+    const [money, setMoney] = useState('');
+    const [payout, setPayout] = useState('');
+    const [teamOne, setTeamOne] = useState ('');
+    const [teamTwo, setTeamTwo] = useState ('');
+    const [loading, setLoading] = useState(true);
 
+    useEffect(() => {
+        if(!loading){
+            setTeamOne(props.selectedGame.bookmakers[0].markets[0].outcomes[0].name) 
+            setTeamTwo(props.selectedGame.bookmakers[0].markets[0].outcomes[1].name)
+        }
+    }, [loading])
+    
+    useEffect(() =>{
+        setLoading(false);
+    }, [])
+
+    useEffect(() =>{
+        if(!loading){
+        placeNewBet()}
+    },[payout]
+    )
+        
     let initialValues = {
         pick: pick,
         amount_bet: amountBet,
         won: false,
-        team_one: props.selectedGame.bookmakers[0].markets[0].outcomes[0].name,
-        team_two: props.selectedGame.bookmakers[0].markets[0].outcomes[1].name,
+        team_one: teamOne,
+        team_two: teamTwo,
         winning_team: 'TBD',
         payout: payout,
         game_id: props.selectedGame.id
@@ -28,6 +47,7 @@ const PlaceBet = (props) => {
     
     async function placeNewBet(){
         try {
+            console.log(initialValues)
             let response = await axios.post("http://127.0.0.1:8000/api/bets/", initialValues, {
                 headers:{
                     Authorization: 'Bearer ' + token
@@ -39,15 +59,16 @@ const PlaceBet = (props) => {
         }}
     
     function betCalculator(moneyLine) {
+        console.log('calculator')
         var odds;
         var betAmount = amountBet;   
         odds = moneyLine >= 0 ? (moneyLine / 100) + 1 : (100 / Math.abs(moneyLine)) + 1; 
         
         setPayout(parseFloat((odds * betAmount).toFixed(2)));
     }
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
         betCalculator(money);
-        placeNewBet()
     }
     console.log(payout)
     return ( 

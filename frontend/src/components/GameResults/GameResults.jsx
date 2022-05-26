@@ -13,7 +13,7 @@ const GameResults = (props) => {
   
       async function getGameResults(){
           
-          let response = await axios.get(`https://api.the-odds-api.com/v4/sports/basketball_nba/scores/?daysFrom=3&apiKey=${KEY}`);
+          let response = await axios.get(`https://api.the-odds-api.com/v4/sports/basketball_nba/scores/?daysFrom=2&apiKey=${KEY}`);
           console.log(response.data)
           setResults(response.data)
       }

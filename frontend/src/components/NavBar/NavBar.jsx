@@ -16,12 +16,17 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
+          <Link to="/games" style={{ textDecoration: "none", color: "white" }}>Upcoming Games
+          </Link>
+        </li>
+        <li>
           {user ? (
             <button onClick={logoutUser}>Logout</button>
           ) : (
             <button onClick={() => navigate("/login")}>Login</button>
           )}
         </li>
+        
       </ul>
     </div>
   );

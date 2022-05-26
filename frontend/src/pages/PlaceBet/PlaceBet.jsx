@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
-// import useCustomForm from "../../hooks/useCustomForm";
 import { useState, useEffect } from "react";
 
 const PlaceBet = (props) => {
@@ -20,7 +19,7 @@ const PlaceBet = (props) => {
             setTeamTwo(props.selectedGame.bookmakers[0].markets[0].outcomes[1].name)
         }
     }, [loading])
-    
+
     useEffect(() =>{
         setLoading(false);
     }, [])

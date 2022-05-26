@@ -39,7 +39,6 @@ function App() {
   return (
     <div>
       <Navbar />
-      {getGames && <DisplayOpenGames setSelectedGame={setSelectedGame} getGames={getGames} getEvents={getEvents}/>}
       <GameResults />
       <Routes>
         <Route
@@ -52,12 +51,13 @@ function App() {
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/games" element={getGames && <DisplayOpenGames setSelectedGame={setSelectedGame} getGames={getGames} getEvents={getEvents}/>} />
         <Route 
-        path="/placebet" 
-        element={
-        <PrivateRoute>
-          {selectedGame && <PlaceBet selectedGame={selectedGame} />}
-        </PrivateRoute>}/>
+          path="/placebet" 
+          element={
+            <PrivateRoute>
+              {selectedGame && <PlaceBet selectedGame={selectedGame} />}
+            </PrivateRoute>}/>
       </Routes>
       <Footer />
     </div>

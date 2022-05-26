@@ -23,23 +23,30 @@ import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
   const [getGames, setGetGames]= useState([]);
-  const [selectedGame, setSelectedGame] = useState([])
+  const [selectedGame, setSelectedGame] = useState([]);
+  const [results, setResults] = useState([]);
 
   useEffect(() => {
       getEvents()
       }, [])
-  
+  useEffect(() => {
+      getGameResults()
+        }, [])
+
       async function getEvents(searchTerm = 'basketball'){
-          
           let response = await axios.get(`https://api.the-odds-api.com/v4/sports/${searchTerm}/odds/?apiKey=${KEY}&regions=us&markets=h2h&oddsFormat=american`)
-          console.log(response.data)
           setGetGames(response.data)
       }
+      async function getGameResults(){
+        let response = await axios.get(`https://api.the-odds-api.com/v4/sports/basketball_nba/scores/?daysFrom=2&apiKey=${KEY}`);
+        console.log(response.data)
+        setResults(response.data)
+    }
 
   return (
     <div>
       <Navbar />
-      <GameResults />
+      {/* {results && <GameResults results={results}/>} */}
       <Routes>
         <Route
           path="/"
@@ -47,8 +54,7 @@ function App() {
             <PrivateRoute>
               <HomePage />
             </PrivateRoute>
-          }
-        />
+          }/>
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/games" element={getGames && <DisplayOpenGames setSelectedGame={setSelectedGame} getGames={getGames} getEvents={getEvents}/>} />

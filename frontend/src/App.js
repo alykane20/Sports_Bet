@@ -15,9 +15,11 @@ import PlaceBet from "./pages/PlaceBet/PlaceBet";
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import DisplayOpenGames from "./components/DisplayOpenGames/DisplayOpenGames";
+import GameResults from "./components/GameResults/GameResults";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+
 
 function App() {
   const [getGames, setGetGames]= useState([]);
@@ -38,6 +40,7 @@ function App() {
     <div>
       <Navbar />
       {getGames && <DisplayOpenGames setSelectedGame={setSelectedGame} getGames={getGames} getEvents={getEvents}/>}
+      <GameResults />
       <Routes>
         <Route
           path="/"

@@ -36,7 +36,7 @@ const HomePage = () => {
       {bets &&
         bets.map((bet) => (
           <p key={bet.id}>
-            {bet.pick} ${bet.amount_bet} 
+            {bet.pick} payout:${bet.payout} 
           </p>
         ))}
     </div>

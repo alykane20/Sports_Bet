@@ -22,12 +22,23 @@ const [bets, setBets] = useState([]);
     fetchBets();
   }, [token]);
 
+  console.log(props.results)
+
+//   if (props.results.scores[0].score > props.results.scores[1].score){
+//       return props.results.scores[0].name
+//   } else{
+//       return props.results.scores[1.].name
+//   }
+
+// Logic to compare scores and save gameID and winner value
+// For loop to cycle through open bets game ID, and then compare bet.pick to winner value
+// If === add bet.payout to user.fund_balance and add 1 to user.total_bets_won
 
 
 
     return (  
         <div>
-            <p>Get to see if you won!</p>
+            <p>See if you won!</p>
         </div>
     );
 }

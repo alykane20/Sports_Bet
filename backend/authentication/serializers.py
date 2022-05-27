@@ -5,6 +5,12 @@ from django.contrib.auth.password_validation import validate_password
 from .models import User
 
 
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields =['id', 'fund_balance', 'total_bets_won', 'status', 'current_bets', 'past_results']
+        
+
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):

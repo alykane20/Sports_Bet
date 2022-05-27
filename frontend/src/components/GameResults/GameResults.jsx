@@ -15,15 +15,14 @@ const GameResults = (props) => {
                         <th>Away Team</th>
                         <th>Score</th>
                     </tr>
-                   {props.results.scores && props.results.map((game)=>(
-                    console.log(game.scores)
-                    // <tr key={game.id}>
-                    //     <td>{game.sport_title}</td>
-                    //     <td>{game.home_team}</td>
-                    //     {/* <td>{game.scores[1].score}</td> */}
-                    //     <td>{game.away_team}</td>
-                    //     {/* <td>{game.scores[0].score}</td> */}
-                    // </tr>
+                   {props.results.map((game)=>(
+                    <tr key={game.id}>
+                        <td>{game.sport_title}</td>
+                        <td>{game.home_team}</td>
+                        {/* <td>{game.scores[1].score}</td> */}
+                        <td>{game.away_team}</td>
+                        {/* <td>{game.scores[0].score}</td> */}
+                    </tr>
                     ))}
                 </tbody>
             </table>

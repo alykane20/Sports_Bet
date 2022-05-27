@@ -10,6 +10,7 @@ const HomePage = () => {
   //TODO: Add an AddCars Page to add a car for a logged in user's garage
   const [user, token] = useAuth();
   const [bets, setBets] = useState([]);
+  const [fundBalance, setFundBalance] = useState([]);
 
   useEffect(() => {
     const fetchBets = async () => {
@@ -26,19 +27,50 @@ const HomePage = () => {
     };
     fetchBets();
   }, [token]);
+
+  let initialValues = {
+    fund_balance: fundBalance
+  }
+  async function addFunds(){
+    try {
+        console.log(initialValues)
+        let response = await axios.patch("http://127.0.0.1:8000/api/auth/funds/", initialValues, {
+            headers:{
+                Authorization: 'Bearer ' + token
+            }
+        })
+    } catch (error) {
+        console.log(error)
+    }}
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+  }
   
   return (
     <div className="container">
-      <h1>Home Page for {user.username}!</h1>
+      <h1>Account information for {user.username}!</h1>
       <p>Balance: ${user.fund_balance}</p>
       <p>Status: {user.status}</p>
       <p>My open bets:</p>
       {bets &&
         bets.map((bet) => (
           <p key={bet.id}>
-            {bet.pick} payout:${bet.payout} 
+            {bet.pick}-  Payout:${bet.payout} 
           </p>
         ))}
+        <form onSubmit={handleSubmit}>
+            <label>
+              Add funds to account balance:
+              <input
+              type="number"
+              name="fund_balance"
+              value={fundBalance}
+              onChange={(event) => setFundBalance(event.target.value)}
+              />
+            </label>
+            <button type="submit">Deposit</button>
+        </form>
     </div>
   );
 };

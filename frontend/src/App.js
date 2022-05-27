@@ -37,8 +37,8 @@ function App() {
           let response = await axios.get(`https://api.the-odds-api.com/v4/sports/${searchTerm}/odds/?apiKey=${KEY}&regions=us&markets=h2h&oddsFormat=american`)
           setGetGames(response.data)
       }
-      async function getGameResults(){
-        let response = await axios.get(`https://api.the-odds-api.com/v4/sports/basketball_nba/scores/?daysFrom=2&apiKey=${KEY}`);
+      async function getGameResults(searchTerm = 'basketball_nba'){
+        let response = await axios.get(`https://api.the-odds-api.com/v4/sports/${searchTerm}/scores/?daysFrom=2&apiKey=${KEY}`);
         console.log(response.data)
         setResults(response.data)
     }
@@ -57,7 +57,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/games" element={getGames && <DisplayOpenGames setSelectedGame={setSelectedGame} getGames={getGames} getEvents={getEvents}/>} />
-        <Route path="/results" element={results && <GameResults results={results}/>} />
+        <Route path="/results" element={results && <GameResults results={results} getGameResults={getGameResults}/>} />
         <Route
           path="/placebet" 
           element={

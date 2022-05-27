@@ -1,8 +1,9 @@
-
+import ResultSearchBar from "../SearchBar/ResultSearchBar";
 const GameResults = (props) => {
     
     return ( 
         <div>
+            <ResultSearchBar getGameResults={props.getGameResults} />
             <table>
                 <tbody>
                     <tr>
@@ -13,8 +14,6 @@ const GameResults = (props) => {
                         <th>Score</th>
                     </tr>
                    {props.results.map((game)=>{
-                    //    debugger
-                       console.log(game.completed)
                     if (game.completed == true){
                         return(
                     <tr key={game.id}>

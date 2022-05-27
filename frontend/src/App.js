@@ -10,6 +10,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import PlaceBet from "./pages/PlaceBet/PlaceBet";
+import ResolveBets from "./pages/ResolveBets/ResolveBets";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -19,6 +20,7 @@ import GameResults from "./components/GameResults/GameResults";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+
 
 
 function App() {
@@ -56,6 +58,7 @@ function App() {
           }/>
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/resolve" element={<ResolveBets results={results}/>} />
         <Route path="/games" element={getGames && <DisplayOpenGames setSelectedGame={setSelectedGame} getGames={getGames} getEvents={getEvents}/>} />
         <Route path="/results" element={results && <GameResults results={results} getGameResults={getGameResults}/>} />
         <Route

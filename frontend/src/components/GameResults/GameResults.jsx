@@ -1,6 +1,3 @@
-import {KEY} from '../../localKey'
-import axios from 'axios';
-import { useState, useEffect } from "react";
 
 const GameResults = (props) => {
     
@@ -16,16 +13,18 @@ const GameResults = (props) => {
                         <th>Score</th>
                     </tr>
                    {props.results.map((game)=>{
+                    //    debugger
                        console.log(game.completed)
-                    if (game.completed == "true"){
+                    if (game.completed == true){
+                        return(
                     <tr key={game.id}>
                         <td>{game.sport_title}</td>
                         <td>{game.home_team}</td>
-                        <td>{game.scores[1].score}</td>
-                        <td>{game.away_team}</td>
                         <td>{game.scores[0].score}</td>
+                        <td>{game.away_team}</td>
+                        <td>{game.scores[1].score}</td>
                     </tr>
-                    }})}
+                    )}})}
                 </tbody>
             </table>
         </div>

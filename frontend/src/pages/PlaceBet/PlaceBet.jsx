@@ -57,7 +57,6 @@ const PlaceBet = (props) => {
         }}
     
     function betCalculator(moneyLine) {
-        console.log('calculator')
         var odds;
         var betAmount = amountBet;   
         odds = moneyLine >= 0 ? (moneyLine / 100) + 1 : (100 / Math.abs(moneyLine)) + 1; 

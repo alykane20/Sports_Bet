@@ -16,7 +16,11 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/games" style={{ textDecoration: "none", color: "white" }}>Upcoming Games
+          <Link to="/games" style={{ textDecoration: "none", color: "white" }}>Upcoming games
+          </Link>
+        </li>
+        <li>
+        <Link to="/results" style={{ textDecoration: "none", color: "white" }}>Recent results
           </Link>
         </li>
         <li>

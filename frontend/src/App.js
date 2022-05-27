@@ -46,7 +46,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      {/* {results && <GameResults results={results}/>} */}
+      {results && <GameResults results={results}/>}
       <Routes>
         <Route
           path="/"

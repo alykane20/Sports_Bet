@@ -1,13 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-
 import axios from "axios";
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
   // The "token" value is the JWT token that you will send in the header of any request requiring authentication
-  //TODO: Add an AddCars Page to add a car for a logged in user's garage
   const [user, token] = useAuth();
   const [bets, setBets] = useState([]);
   const [fundBalance, setFundBalance] = useState([]);
@@ -29,8 +27,9 @@ const HomePage = () => {
   }, [token]);
 
   let initialValues = {
-    fund_balance: fundBalance
+    fund_increase: fundBalance
   }
+
   async function addFunds(){
     try {
         console.log(initialValues)
@@ -41,10 +40,11 @@ const HomePage = () => {
         })
     } catch (error) {
         console.log(error)
-    }}
-
-    const handleSubmit = (e) => {
+    }};
+    
+  const handleSubmit = (e) => {
       e.preventDefault();
+      addFunds()
   }
   
   return (
@@ -56,12 +56,12 @@ const HomePage = () => {
       {bets &&
         bets.map((bet) => (
           <p key={bet.id}>
-            {bet.pick}-  Payout:${bet.payout} 
+            {bet.pick}:  Payout ${bet.payout} 
           </p>
         ))}
-        <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
             <label>
-              Add funds to account balance:
+              Add funds to balance:
               <input
               type="number"
               name="fund_balance"
@@ -70,7 +70,7 @@ const HomePage = () => {
               />
             </label>
             <button type="submit">Deposit</button>
-        </form>
+      </form>
     </div>
   );
 };

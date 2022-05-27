@@ -15,15 +15,17 @@ const GameResults = (props) => {
                         <th>Away Team</th>
                         <th>Score</th>
                     </tr>
-                   {props.results.map((game)=>(
+                   {props.results.map((game)=>{
+                       console.log(game.completed)
+                    if (game.completed == "true"){
                     <tr key={game.id}>
                         <td>{game.sport_title}</td>
                         <td>{game.home_team}</td>
-                        {/* <td>{game.scores[1].score}</td> */}
+                        <td>{game.scores[1].score}</td>
                         <td>{game.away_team}</td>
-                        {/* <td>{game.scores[0].score}</td> */}
+                        <td>{game.scores[0].score}</td>
                     </tr>
-                    ))}
+                    }})}
                 </tbody>
             </table>
         </div>

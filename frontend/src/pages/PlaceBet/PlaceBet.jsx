@@ -42,7 +42,6 @@ const PlaceBet = (props) => {
     }
     const [user, token] = useAuth()
     const navigate = useNavigate()
-    // const [formData] = useCustomForm(initialValues)
     
     async function placeNewBet(){
         try {
@@ -69,7 +68,7 @@ const PlaceBet = (props) => {
         e.preventDefault();
         betCalculator(money);
     }
-    console.log(payout)
+   
     return ( 
         <div>
             <form onSubmit={handleSubmit}>

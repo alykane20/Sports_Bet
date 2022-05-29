@@ -57,7 +57,7 @@ function App() {
           }/>
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/resolve" element={<ResolveBets results={results}/>} />
+        <Route path="/resolve" element={results && <ResolveBets results={results}/>} />
         <Route path="/games" element={getGames && <DisplayOpenGames setSelectedGame={setSelectedGame} getGames={getGames} getEvents={getEvents}/>} />
         <Route path="/results" element={results && <GameResults results={results} getGameResults={getGameResults}/>} />
         <Route

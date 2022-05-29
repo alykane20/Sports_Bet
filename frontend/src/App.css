@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
-
+body {
+  background: linear-gradient(rgb(243, 241, 241), #FF8200);}
 *,
 *::before,
 *::after {
@@ -19,8 +20,8 @@ p {
 
 button {
   background-color: transparent;
-  border: 2px solid steelblue;
-  color: steelblue;
+  border: 2px solid black;
+  color: black;
   font-size: 1rem;
   font-family: inherit;
   max-width: 100px;
@@ -30,7 +31,8 @@ button {
 button:hover {
   cursor: pointer;
   color: white;
-  background-color: steelblue;
+  background-color: rgb(0, 154, 68
+  );
 }
 
 .container {

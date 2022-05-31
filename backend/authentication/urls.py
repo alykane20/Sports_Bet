@@ -10,5 +10,6 @@ urlpatterns = [
     path('login/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('register/', RegisterView.as_view(), name='register'),
     path('update/<int:pk>/', views.update_user),
-    path('funds/', views.update_funds)
+    path('funds/', views.update_funds),
+    path('resolve/', views.resolve_win)
 ]

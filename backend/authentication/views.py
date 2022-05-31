@@ -37,3 +37,12 @@ def update_funds(request):
         request.user.fund_balance += int(request.data['fund_increase'])
         request.user.save()
         return Response(status=status.HTTP_200_OK)
+
+@api_view(['PATCH'])
+@permission_classes([IsAuthenticated])
+def resolve_win(request):       
+    if request.method == 'PATCH':
+        request.user.fund_balance += int(request.data['payout'])
+        request.user.total_bets_won += 1
+        request.user.save()
+        return Response(status=status.HTTP_200_OK)

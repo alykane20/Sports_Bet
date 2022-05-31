@@ -8,6 +8,16 @@
 
 .items{
     display: inline;
-    flex-grow: 1;
+    flex: 1 1 0;
 
+}
+
+.list-status{
+    display: block;
+    list-style-type:circle;
+    margin-left: 5%;
+}
+
+.account {
+    margin-left: 7%;
 }

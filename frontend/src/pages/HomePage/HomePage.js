@@ -57,11 +57,11 @@ const HomePage = () => {
 
   return (
     <div className="container">
-      <div className="items" >
+      <div className="items">
       <h1>Account information for {user.username}!</h1>
       <p>Balance: ${user.fund_balance}</p>
       <p>Status: {user.status}</p>
-      <p>My open bets:</p>
+      <p>Open bets:</p>
       {bets &&
         bets.map((bet) => (
           <p key={bet.id}>
@@ -86,16 +86,18 @@ const HomePage = () => {
           <div className="items">
             <p>"Balance" : Current funds in your account available to place bets with</p>
             <p> "Status": Track your progress as you play and win bets!
-              New accounts start as a "newbie"
-              10 wins = Drafted
-              25 wins = Rookie
-              50 wins = Starter
-              100 = Pro
-              250 = Star
-              500 = MVP
-              1000 = All-star
+              New accounts start as Newbie:
+              <ul className="list-status">
+              <li>10 wins = Drafted</li>
+              <li>25 wins = Rookie</li>
+              <li>50 wins = Starter</li>
+              <li>100 = Pro</li>
+              <li>250 = Star</li>
+              <li>500 = MVP</li>
+              <li>1000 = All-star</li>
+              </ul>
             </p>
-            <p>"Open bets: Any games you currently have bets on that haven't been completed yet</p>
+            <p>"Open bets": Any games you currently have bets on that haven't been completed yet</p>
           </div>
     </div>
   );

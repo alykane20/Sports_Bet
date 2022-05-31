@@ -57,6 +57,7 @@ const HomePage = () => {
 
   return (
     <div className="container">
+      <div className="items" >
       <h1>Account information for {user.username}!</h1>
       <p>Balance: ${user.fund_balance}</p>
       <p>Status: {user.status}</p>
@@ -67,6 +68,7 @@ const HomePage = () => {
             {bet.pick}:  Payout ${bet.payout} 
           </p>
         ))}
+        
       <form onSubmit={handleSubmit}>
             <label>
               Add funds to balance:
@@ -80,6 +82,21 @@ const HomePage = () => {
             <button type="submit">Deposit</button>
       </form>
       <button className="button" onClick={(event) => handleClick(event)}> Check to see if you won</button>
+          </div>
+          <div className="items">
+            <p>"Balance" : Current funds in your account available to place bets with</p>
+            <p> "Status": Track your progress as you play and win bets!
+              New accounts start as a "newbie"
+              10 wins = Drafted
+              25 wins = Rookie
+              50 wins = Starter
+              100 = Pro
+              250 = Star
+              500 = MVP
+              1000 = All-star
+            </p>
+            <p>"Open bets: Any games you currently have bets on that haven't been completed yet</p>
+          </div>
     </div>
   );
 };

@@ -1,0 +1,20 @@
+.table{
+    outline: solid;
+    margin-bottom: 75px;
+    margin-left: 5%;
+    margin-top: 10px;
+    width: 65%;
+}
+
+.button{
+    border-radius: 14px;
+}
+
+.button:hover{
+    cursor: pointer;
+}
+
+.row{
+    text-align: center;
+    
+}

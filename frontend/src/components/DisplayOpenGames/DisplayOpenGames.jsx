@@ -1,6 +1,6 @@
 import SearchBar from "../SearchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
-
+import "./DisplayOpenGames.css";
 
 const DisplayOpenGames  = (props) => {
     const navigate = useNavigate();
@@ -13,7 +13,7 @@ const DisplayOpenGames  = (props) => {
     return( 
         <div>
             <SearchBar getEvents={props.getEvents}/>
-            <table>
+            <table className="table">
                 <tbody>
                     <tr>
                         <th>Sport</th>
@@ -25,20 +25,20 @@ const DisplayOpenGames  = (props) => {
                     </tr>
                    {props.getGames.map((game)=>(
                     <tr key={game.id}>
-                        <td>{game.sport_title}</td>
-                        <td>{game.commence_time}</td>
-                        <td>{game.bookmakers[0].markets[0].outcomes[0].name}</td>
-                        <td>{game.bookmakers[0].markets[0].outcomes[0].price}</td>
-                        <td>{game.bookmakers[0].markets[0].outcomes[1].name}</td>
-                        <td>{game.bookmakers[0].markets[0].outcomes[1].price}</td>
-                        <td><button onClick={(event) => handleClick(event, game)}> Select Game</button></td>
+                        <td className="row" >{game.sport_title}</td>
+                        <td className="row">{game.commence_time}</td>
+                        <td className="row">{game.bookmakers[0].markets[0].outcomes[0].name}</td>
+                        <td className="row">{game.bookmakers[0].markets[0].outcomes[0].price}</td>
+                        <td className="row">{game.bookmakers[0].markets[0].outcomes[1].name}</td>
+                        <td className="row">{game.bookmakers[0].markets[0].outcomes[1].price}</td>
+                        <td className="row"><button className="button" onClick={(event) => handleClick(event, game)}> Select Game</button></td>
                     </tr>
                     
                     ))}
                 </tbody>
             </table>
             <div>
-                <p>If you're new to sports betting, here's some info to help get you started!</p>
+                <h2>If you're new to sports betting, here's some info to help get you started!</h2>
                 <p>What is the "moneyline"?</p>
                 <p>A negative number (ex. -330) denotes the favored team, while a positive one (ex. 200) is the underdog</p>
                 <p>The number itself shows how much you can win!</p>

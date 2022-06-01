@@ -9,6 +9,7 @@ const [winner, setWinner] = useState([]);
 const [payout, setPayout] = useState([]);
   
   useEffect(() => {
+    
     const fetchBets = async () => {
       try {
         let response = await axios.get("http://127.0.0.1:8000/api/bets/", {
@@ -16,19 +17,19 @@ const [payout, setPayout] = useState([]);
             Authorization: "Bearer " + token,
           },
         });
+       
         setBets(response.data);
+        findWinner(response.data);
       } catch (error) {
         console.log(error.response.data);
       }
     };
     fetchBets();
-    findWinner();
   }, [token]);
 
-      function findWinner(){
+      function findWinner(theBets){
       let completedGames = props.results.filter((game)=>{
         if(game.completed === true){
-          console.log(game)
           return true}})
       let results = completedGames.map((el)=>{
         if(parseInt(el.scores[0].score) > parseInt(el.scores[1].score)){
@@ -38,18 +39,24 @@ const [payout, setPayout] = useState([]);
           console.log(el.scores[1].name)
           return el.scores[1].name}
         })
+  
         setWinner(results)
-        compareBets(results)
+        console.log(theBets, results)
+        compareBets(theBets,results)
       }
 
-  function compareBets(winnersForCompare){
-    debugger
-    let results = bets.map((bet) =>{
-      if (bet.pick === winnersForCompare[0])
-        return bet.payout
-      })
-      setPayout(results)
-      console.log(payout)
+  function compareBets(openBets, winnersForCompare){
+
+    for(let i=0; i< openBets.length; i++){
+      for(let j=0; j< winnersForCompare.length; j++){
+        if(openBets[i].pick===winnersForCompare[j]){
+         setPayout(openBets[i].payout)
+        }
+        else{
+          console.log(openBets[i].pick, winnersForCompare[j])
+        }
+      }
+    }
     }
 
     let initialValues = {
@@ -58,7 +65,6 @@ const [payout, setPayout] = useState([]);
   
     async function addWinnings(){
       try {
-          console.log(initialValues)
           let response = await axios.patch("http://127.0.0.1:8000/api/auth/resolve/", initialValues, {
               headers:{
                   Authorization: 'Bearer ' + token
@@ -68,12 +74,20 @@ const [payout, setPayout] = useState([]);
           console.log(error)
       }};
       
+      const handleClick = (e) => {
+        e.preventDefault();
+        addWinnings()
+      }
 
 
     return (  
         <div>
             <p>Recent game winners:</p>
             {winner.map(el => <div>{el}</div>)}
+        <div>
+        <button onClick={(event) => handleClick(event)}> Check Bets</button>
+        </div>
+
         </div>
     );
 }

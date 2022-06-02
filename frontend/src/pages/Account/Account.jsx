@@ -27,22 +27,29 @@ useEffect(() => {
     getUser();
 }, [token]);
 
+const handleClick = (e) => {
+    e.preventDefault();
+    navigate("/status")
+  }
+
 return ( 
     <div>
+       <h1 className="account">Your current account info</h1> 
   {userData &&
           userData.map((user) => (
-          <div key={user.id}>
+          <div className="account" key={user.id}>
            <p>Balance: ${user.fund_balance}</p>  
            <p>Total wins: {user.total_bets_won}</p>
            <p>Status: {user.status}</p>
+           <button onClick={(event) => handleClick(event)}>Check status</button>
           </div>
           ))}
-    <div>
         <h2>About your account:</h2>
-        <p>Balance = Funds currently available for you to place bets with</p>
-        <p>Total wins = This includes all winning bets since account was opened (whether you won $1 or $100,000)</p>
-        <p>Track your status:</p>
-        <ul className="list-status">
+        <div className="about">
+            <p>Balance = Funds currently available for you to place bets with</p>
+            <p>Total wins = This includes all winning bets since account was opened (whether you won $1 or $100,000)</p>
+            <p>Track your status:</p>
+             <ul className="list-status">
             <li>0-9 wins = Newbie</li>
             <li>10 wins = Drafted</li>
             <li>25 wins = Rookie</li>
@@ -52,9 +59,7 @@ return (
             <li>500 = MVP</li>
             <li>1000 = All-star</li>
         </ul>
-    </div>
-   
- 
+        </div>
     </div>
     )
 }

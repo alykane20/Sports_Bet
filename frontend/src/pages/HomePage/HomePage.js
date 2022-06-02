@@ -6,11 +6,9 @@ import { useNavigate } from "react-router-dom";
 import './HomePage.css';
 
 const HomePage = () => {
-  // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
-  // The "token" value is the JWT token that you will send in the header of any request requiring authentication
   const [user, token] = useAuth();
   const [bets, setBets] = useState([]);
-  const [fundBalance, setFundBalance] = useState([]);
+  const [userData, setUserData] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,26 +27,28 @@ const HomePage = () => {
     fetchBets();
   }, [token]);
 
-  let initialValues = {
-    fund_increase: fundBalance
-  }
 
-  async function addFunds(){
-    try {
-        console.log(initialValues)
-        let response = await axios.patch("http://127.0.0.1:8000/api/auth/funds/", initialValues, {
-            headers:{
-                Authorization: 'Bearer ' + token
-            }
-        })
-    } catch (error) {
-        console.log(error)
-    }};
-    
-  const handleSubmit = (e) => {
-      e.preventDefault();
-      addFunds()
-  }
+    async function getUser(){
+      try {
+          let response = await axios.get("http://127.0.0.1:8000/api/auth/info/", {
+              headers:{
+                  Authorization: 'Bearer ' + token
+              }
+          })
+          setUserData(response.data);
+          console.log("user", response.data)
+      } catch (error) {
+          console.log(error)
+      }};
+
+  const handleAccountClick = (e) => {
+    e.preventDefault();
+    navigate("/account")
+    }
+  const handleFundClick = (e) => {
+    e.preventDefault();
+    navigate("/addfunds")
+    }
   
   const handleClick = (e) => {
     e.preventDefault();
@@ -57,10 +57,12 @@ const HomePage = () => {
 
   return (
     <div className="container">
+     
       <div className="items">
       <h1>Account information for {user.username}!</h1>
       <p>Balance: ${user.fund_balance}</p>
-      <p>Status: {user.status}</p>
+      <p>Status: {userData.status}</p>
+      <p>Total wins: {userData.total_bets_won}</p>
       <p>Open bets:</p>
       {bets &&
         bets.map((bet) => (
@@ -68,19 +70,8 @@ const HomePage = () => {
             {bet.pick}:  Payout ${bet.payout} 
           </p>
         ))}
-        
-      <form onSubmit={handleSubmit}>
-            <label>
-              Add funds to balance:
-              <input
-              type="number"
-              name="fund_balance"
-              value={fundBalance}
-              onChange={(event) => setFundBalance(event.target.value)}
-              />
-            </label>
-            <button type="submit">Deposit</button>
-      </form>
+      <button className="button" onClick={(event) => handleAccountClick(event)}> View your account</button>
+      <button className="button" onClick={(event) => handleFundClick(event)}> Add funds to account</button>
       <button className="button" onClick={(event) => handleClick(event)}> Check to see if you won</button>
           </div>
           <div className="items">
@@ -97,9 +88,9 @@ const HomePage = () => {
               <li>1000 = All-star</li>
               </ul>
             </p>
-            <p>"Open bets": Any games you currently have bets on that haven't been completed yet</p>
-          </div>
-    </div>
+            <p>"Open bets": Any games you currently have bets on that haven't been completed yet</p> */}
+      </div>
+      </div>
   );
 };
 

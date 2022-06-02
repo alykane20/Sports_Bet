@@ -11,6 +11,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import PlaceBet from "./pages/PlaceBet/PlaceBet";
 import ResolveBets from "./pages/ResolveBets/ResolveBets";
+import AddFunds from "./pages/AddFunds/AddFunds";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -57,6 +58,7 @@ function App() {
           }/>
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/addfunds" element={<AddFunds />} />
         <Route path="/resolve" element={results.length>0 && <ResolveBets results={results} getGameResults={getGameResults}/>} />
         <Route path="/games" element={getGames && <DisplayOpenGames setSelectedGame={setSelectedGame} getGames={getGames} getEvents={getEvents}/>} />
         <Route path="/results" element={results && <GameResults results={results} getGameResults={getGameResults}/>} />

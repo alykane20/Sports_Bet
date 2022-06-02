@@ -27,7 +27,7 @@ const navigate = useNavigate();
 const handleSubmit = (e) => {
     e.preventDefault();
     addFunds()
-    navigate("/")
+    navigate("/account")
 }
 
     return ( 

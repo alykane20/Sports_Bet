@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import './AddFunds.css'
 
 
 const AddFunds = (props) => {
@@ -31,9 +32,11 @@ const handleSubmit = (e) => {
 }
 
     return ( 
-        <form onSubmit={handleSubmit}>
+       <div>
+       <p>If your balance is getting low, add some funds to continue betting!</p>
+       <form onSubmit={handleSubmit}>
             <label>
-              Add funds to balance:
+              Amount to add:
               <input
               type="number"
               name="fund_balance"
@@ -41,8 +44,10 @@ const handleSubmit = (e) => {
               onChange={(event) => setFundBalance(event.target.value)}
               />
             </label>
-            <button type="submit">Deposit</button>
+            <button className="button" type="submit">Deposit</button>
       </form>
+
+      </div>
      );
 }
  

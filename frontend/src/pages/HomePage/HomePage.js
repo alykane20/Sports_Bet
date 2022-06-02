@@ -34,7 +34,6 @@ const HomePage = () => {
     e.preventDefault();
     navigate("/addfunds")
     }
-  
   const handleClick = (e) => {
     e.preventDefault();
     navigate("/resolve")
@@ -57,6 +56,6 @@ const HomePage = () => {
       </div>
     </div>
   );
-          };
+     };
 
 export default HomePage;

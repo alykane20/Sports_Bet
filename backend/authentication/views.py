@@ -20,6 +20,15 @@ class RegisterView(generics.CreateAPIView):
     permission_classes = (AllowAny,)
     serializer_class = RegistrationSerializer
 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_user_data(request):
+    if request.method == 'GET':
+        user = User.objects.filter(id=request.user.id)
+        serializer = UserSerializer(user, many=True)
+        return Response(serializer.data)
+
+
 @api_view(['PUT'])
 @permission_classes([IsAuthenticated])
 def update_user(request, pk):

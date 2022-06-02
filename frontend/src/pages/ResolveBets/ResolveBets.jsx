@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const ResolveBets = (props) => {
+const navigate = useNavigate();
 const [user, token] = useAuth();
 const [bets, setBets] = useState([]);
 const [winner, setWinner] = useState([]);
@@ -33,7 +35,6 @@ const [payout, setPayout] = useState([]);
           return true}})
       let results = completedGames.map((el)=>{
         if(parseInt(el.scores[0].score) > parseInt(el.scores[1].score)){
-          console.log(el.scores[0].name)
           return el.scores[0].name
         } else{
           console.log(el.scores[1].name)
@@ -46,7 +47,6 @@ const [payout, setPayout] = useState([]);
       }
 
   function compareBets(openBets, winnersForCompare){
-
     for(let i=0; i< openBets.length; i++){
       for(let j=0; j< winnersForCompare.length; j++){
         if(openBets[i].pick===winnersForCompare[j]){
@@ -77,6 +77,7 @@ const [payout, setPayout] = useState([]);
       const handleClick = (e) => {
         e.preventDefault();
         addWinnings()
+        navigate("/")
       }
 
 

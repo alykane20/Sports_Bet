@@ -56,3 +56,11 @@ def resolve_win(request):
         request.user.total_bets_won += 1
         request.user.save()
         return Response(status=status.HTTP_200_OK)
+
+@api_view(['PATCH'])
+@permission_classes([IsAuthenticated])
+def update_status(request):       
+    if request.method == 'PATCH':
+        request.user.status = (request.data['status'])
+        request.user.save()
+        return Response(status=status.HTTP_200_OK)

@@ -12,5 +12,6 @@ urlpatterns = [
     path('update/<int:pk>/', views.update_user),
     path('funds/', views.update_funds),
     path('resolve/', views.resolve_win),
-    path('info/', views.get_user_data)
+    path('info/', views.get_user_data),
+    path('status/', views.update_status)
 ]

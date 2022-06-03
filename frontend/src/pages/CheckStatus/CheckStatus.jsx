@@ -45,7 +45,11 @@ function updateStatus (){
 }
 
     return ( 
-        <div> Coming soon</div>
+        <div> 
+            <h2>Your current status is {state.status}</h2>
+            <p>Check here to see if you can level up!</p>
+            <button></button>
+        </div>
      );
 }
  

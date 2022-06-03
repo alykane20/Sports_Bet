@@ -77,7 +77,7 @@ const [payout, setPayout] = useState([]);
       const handleClick = (e) => {
         e.preventDefault();
         addWinnings()
-        navigate("/")
+        navigate("/account")
       }
 
 

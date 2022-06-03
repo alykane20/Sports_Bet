@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import './Account.css'
 
 const Account = (props) => {
@@ -27,10 +27,16 @@ useEffect(() => {
     getUser();
 }, [token]);
 
-const handleClick = (e) => {
-    e.preventDefault();
-    navigate("/status")
-  }
+const handleClick = (user) => {
+    // preventDefault();
+    navigate(`/status/${user.id}`, {
+        state:{
+            fund: user.fund_balance,
+            totalWins: user.total_bets_won,
+            status: user.status
+        },
+    });
+  };
 
 return ( 
     <div>
@@ -41,7 +47,9 @@ return (
            <p>Balance: ${user.fund_balance}</p>  
            <p>Total wins: {user.total_bets_won}</p>
            <p>Status: {user.status}</p>
-           <button onClick={(event) => handleClick(event)}>Check status</button>
+           {/* <p><Link to={`/status/${user.id}`} >Check status
+          </Link></p> */}
+           <button onClick={() => handleClick(user)}>Check status</button>
           </div>
           ))}
         <h2>About your account:</h2>

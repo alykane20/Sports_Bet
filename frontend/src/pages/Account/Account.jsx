@@ -47,7 +47,7 @@ return (
            <p>Balance: ${user.fund_balance}</p>  
            <p>Total wins: {user.total_bets_won}</p>
            <p>Status: {user.status}</p>
-           <button onClick={() => handleClick(user)}>Check status</button>
+           <button className="button" onClick={() => handleClick(user)}>Check status</button>
           </div>
           ))}
         <h2>About your account:</h2>

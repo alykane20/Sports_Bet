@@ -5,17 +5,31 @@ import axios from "axios";
 import { useNavigate, Link, useParams, useLocation } from "react-router-dom";
 
 const CheckStatus = (props) => {
+const [user, token] = useAuth();
 const navigate = useNavigate();
-const [user, setUser] = useState({});
 const[userStatus, setUserStatus] = useState([]);
-const {userId} = useParams()
+// const {userId} = useParams()
 const{ state } = useLocation();
 console.log(state.totalWins)
 
-// useEffect(() => {
+useEffect(() => {
+    updateStatus()
+    }, [])
 
+let initialValues = {
+    status: userStatus}
 
-// },[userId])
+  async function newStatus(){
+    try {
+        let response = await axios.patch("http://127.0.0.1:8000/api/auth/status/", initialValues, {
+            headers:{
+                Authorization: 'Bearer ' + token
+            }
+        });
+    } catch (error) {
+        console.log(error)
+    }};
+
 
 function updateStatus (){
     if(state.totalWins <= 9){
@@ -43,31 +57,20 @@ function updateStatus (){
         setUserStatus("All-star")
     }
 }
-
+const handleClick = (e) => {
+    e.preventDefault();
+    newStatus()
+    navigate("/account")
+  }
     return ( 
         <div> 
             <h2>Your current status is {state.status}</h2>
-            <p>Check here to see if you can level up!</p>
-            <button></button>
+            <p>If you think you have enough wins, check here to see if you can move up a level!</p>
+            <button className="button" onClick={(event) => handleClick(event)}> Level up!</button>
+
         </div>
      );
 }
  
 export default CheckStatus;
 
-// useEffect(() => {
-//     const getUser = async () => {
-//     try {
-//         let response = await axios.get("http://127.0.0.1:8000/api/auth/info/", {
-//             headers:{
-//                 Authorization: 'Bearer ' + token
-//             }
-//         })
-//         setUserWins(response.data[0].total_bets_won);
-//         console.log(response.data)
-//     } catch (error) {
-//         console.log(error)
-//     }
-//   };
-//     getUser();
-// }, [token]);

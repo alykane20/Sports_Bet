@@ -9,9 +9,9 @@ const [user, token] = useAuth();
 const [bets, setBets] = useState([]);
 const [winner, setWinner] = useState([]);
 const [payout, setPayout] = useState([]);
+const [gameWinner, setGameWinner] = useState([]);
   
   useEffect(() => {
-    
     const fetchBets = async () => {
       try {
         let response = await axios.get("http://127.0.0.1:8000/api/bets/", {
@@ -19,7 +19,6 @@ const [payout, setPayout] = useState([]);
             Authorization: "Bearer " + token,
           },
         });
-       
         setBets(response.data);
         findWinner(response.data);
       } catch (error) {
@@ -40,9 +39,7 @@ const [payout, setPayout] = useState([]);
           console.log(el.scores[1].name)
           return el.scores[1].name}
         })
-  
         setWinner(results)
-        console.log(theBets, results)
         compareBets(theBets,results)
       }
 
@@ -51,17 +48,16 @@ const [payout, setPayout] = useState([]);
       for(let j=0; j< winnersForCompare.length; j++){
         if(openBets[i].pick===winnersForCompare[j]){
          setPayout(openBets[i].payout)
+         console.log(openBets[i].id)
+        //  setGameWinner(winnersForCompare[j])
         }
         else{
-          console.log(openBets[i].pick, winnersForCompare[j])
-        }
-      }
-    }
-    }
+          // setGameWinner(winnersForCompare[j])
+          console.log(winnersForCompare[j])
+        }}}}
 
     let initialValues = {
-      payout: payout
-    }
+      payout: payout}
   
     async function addWinnings(){
       try {
@@ -74,9 +70,24 @@ const [payout, setPayout] = useState([]);
           console.log(error)
       }};
       
+    // let gameValues = {
+    //   winner: gameWinner
+    // }
+    //   async function completeGame(){
+    //     try {
+    //         let response = await axios.patch("http://127.0.0.1:8000/api/bets/update/30/", gameValues, {
+    //             headers:{
+    //                 Authorization: 'Bearer ' + token
+    //             }
+    //         })
+    //     } catch (error) {
+    //         console.log(error)
+    //     }};
+
       const handleClick = (e) => {
         e.preventDefault();
         addWinnings()
+        // completeGame()
         navigate("/account")
       }
 

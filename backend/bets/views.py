@@ -29,7 +29,8 @@ def user_bets(request):
 def update_bet(request, pk):       
     if request.method == 'PATCH':
         bet = get_object_or_404(Bet, pk=pk)
-        bet.won = True
+        bet.completed = True
+        bet.winning_team = (request.data['winner'])
         serializer = BetSerializer(bet, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()

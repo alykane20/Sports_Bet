@@ -1,3 +1,11 @@
 .button{
     border-radius: 14px;
 }
+
+.display{
+    text-align: center;
+}
+
+.title{
+    margin-bottom: 15px;
+}

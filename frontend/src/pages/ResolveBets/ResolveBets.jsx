@@ -8,8 +8,9 @@ const navigate = useNavigate();
 const [user, token] = useAuth();
 const [bets, setBets] = useState([]);
 const [winner, setWinner] = useState([]);
-const [payout, setPayout] = useState([]);
+const [payout, setPayout] = useState(0);
 const [gameWinner, setGameWinner] = useState([]);
+const [id, setId] = useState(" ")
   
   useEffect(() => {
     const fetchBets = async () => {
@@ -44,24 +45,27 @@ const [gameWinner, setGameWinner] = useState([]);
       }
 
   function compareBets(openBets, winnersForCompare){
+ 
     for(let i=0; i< openBets.length; i++){
       for(let j=0; j< winnersForCompare.length; j++){
         if(openBets[i].pick===winnersForCompare[j]){
-         setPayout(openBets[i].payout)
-         console.log(openBets[i].id)
-        //  setGameWinner(winnersForCompare[j])
+          console.log("Winning")
+          setPayout(openBets[i].payout)
+         setId(openBets[i].id)
+         setGameWinner(winnersForCompare[j])
         }
         else{
-          // setGameWinner(winnersForCompare[j])
+          setGameWinner(winnersForCompare[j])
+          setId(openBets[j].id)
           console.log(winnersForCompare[j])
         }}}}
-
-    let initialValues = {
-      payout: payout}
+     
+  
   
     async function addWinnings(){
+      console.log(payout)
       try {
-          let response = await axios.patch("http://127.0.0.1:8000/api/auth/resolve/", initialValues, {
+          let response = await axios.patch("http://127.0.0.1:8000/api/auth/resolve/", {payout:payout}, {
               headers:{
                   Authorization: 'Bearer ' + token
               }
@@ -70,24 +74,25 @@ const [gameWinner, setGameWinner] = useState([]);
           console.log(error)
       }};
       
-    // let gameValues = {
-    //   winner: gameWinner
-    // }
-    //   async function completeGame(){
-    //     try {
-    //         let response = await axios.patch("http://127.0.0.1:8000/api/bets/update/30/", gameValues, {
-    //             headers:{
-    //                 Authorization: 'Bearer ' + token
-    //             }
-    //         })
-    //     } catch (error) {
-    //         console.log(error)
-    //     }};
+    let gameValues = {
+      winner: gameWinner
+    }
+      async function completeGame(){
+        try {
+            let response = await axios.patch(`http://127.0.0.1:8000/api/bets/update/${id}/`, gameValues, {
+                headers:{
+                    Authorization: 'Bearer ' + token
+                }
+            })
+        } catch (error) {
+            console.log(error)
+        }};
 
       const handleClick = (e) => {
         e.preventDefault();
+        
         addWinnings()
-        // completeGame()
+        completeGame()
         navigate("/account")
       }
 

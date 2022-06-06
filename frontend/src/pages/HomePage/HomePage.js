@@ -45,11 +45,13 @@ const HomePage = () => {
         <h1>Account information for {user.username}!</h1>
         <p>Open bets:</p>
         {bets &&
-          bets.map((bet) => (
+          bets.map((bet) => {
+            if(bet.completed ==false){
+              return(
           <p key={bet.id}>
             {bet.pick}:  Payout ${bet.payout} 
           </p>
-          ))}
+)}})}
       <button className="button" onClick={(event) => handleAccountClick(event)}> View your account</button>
       <button className="button" onClick={(event) => handleFundClick(event)}> Add funds to account</button>
       <button className="button" onClick={(event) => handleClick(event)}> Check to see if you won</button>

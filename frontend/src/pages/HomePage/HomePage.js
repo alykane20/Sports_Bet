@@ -36,13 +36,14 @@ const HomePage = () => {
     }
   const handleClick = (e) => {
     e.preventDefault();
-    navigate("/resolve")
+    navigate("/resolve");
+
   }
 
   return (
     <div className="container">
       <div className="items">
-        <h1>Account information for {user.username}!</h1>
+        <h1>Welcome back, {user.username}!</h1>
         <p>Open bets:</p>
         {bets &&
           bets.map((bet) => {

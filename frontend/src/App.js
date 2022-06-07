@@ -66,8 +66,8 @@ function App() {
         <Route path="/history" element={<BetHistory />} />
         <Route path="/status/:userId" element={<CheckStatus />} />
         <Route path="/resolve" element={results.length>0 && <ResolveBets results={results} getGameResults={getGameResults}/>} />
+        <Route path="/results" element={results.length>0 && <GameResults results={results} getGameResults={getGameResults}/>} />
         <Route path="/games" element={getGames && <DisplayOpenGames setSelectedGame={setSelectedGame} getGames={getGames} getEvents={getEvents}/>} />
-        <Route path="/results" element={results && <GameResults results={results} getGameResults={getGameResults}/>} />
         <Route
           path="/placebet" 
           element={

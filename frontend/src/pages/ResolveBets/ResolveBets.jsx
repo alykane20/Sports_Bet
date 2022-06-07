@@ -1,17 +1,14 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
-import { useNavigate} from "react-router-dom";
+import { useNavigate, Link} from "react-router-dom";
+import ResultSearchBar from "../../components/SearchBar/ResultSearchBar";
+import './ResolveBets.css'
 
 const ResolveBets = (props) => {
 const navigate = useNavigate();
 const [user, token] = useAuth();
 const [bets, setBets] = useState([]);
-const [winner, setWinner] = useState([]);
-// const [payout, setPayout] = useState(0);
-// const [gameWinner, setGameWinner] = useState([]);
-// const [id, setId] = useState(" ")
-
   
   useEffect(async() => {
     const fetchBets = async () => {
@@ -44,7 +41,6 @@ const [winner, setWinner] = useState([]);
           return el.scores[1].name}
         })
         console.log('namesofWinners', namesOfWinners);
-        setWinner(namesOfWinners)
         compareBets(theBets,namesOfWinners)
   }
 
@@ -103,19 +99,38 @@ const [winner, setWinner] = useState([]);
 
   const handleClick = (e) => {
     e.preventDefault();
-    
     navigate("/history")
   }
 
-
   return (  
       <div>
-          <p>Recent game winners:</p>
-          {winner.map(el => <div>{el}</div>)}
       <div>
-      <button onClick={(event) => handleClick(event)}> View your bet history </button>
-      </div>
-
+            <ResultSearchBar getGameResults={props.getGameResults} />
+            <table className="table-items">
+                <tbody>
+                    <tr>
+                        <th>Sport</th>
+                        <th>Home Team</th>
+                        <th>Score</th>
+                        <th>Away Team</th>
+                        <th>Score</th>
+                    </tr>
+                   {props.results.map((game)=>{
+                    if (game.completed == true){
+                        return(
+                    <tr key={game.id}>
+                        <td className="row">{game.sport_title}</td>
+                        <td className="row">{game.home_team}</td>
+                        <td className="row">{game.scores[0].score}</td>
+                        <td className="row">{game.away_team}</td>
+                        <td className="row">{game.scores[1].score}</td>
+                    </tr>
+                    )}})}
+                </tbody>
+            </table>
+        </div>
+      <button className="button" onClick={(event) => handleClick(event)}> View your bet history </button>
+      <Link to="/account" >Return to account </Link>
       </div>
   );
 }

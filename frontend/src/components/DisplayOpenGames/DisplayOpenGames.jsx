@@ -13,7 +13,8 @@ const DisplayOpenGames  = (props) => {
     return( 
         <div>
             <SearchBar getEvents={props.getEvents}/>
-            <table className="table">
+            
+            <table className="table-items">
                 <tbody>
                     <tr>
                         <th>Sport</th>
@@ -37,6 +38,7 @@ const DisplayOpenGames  = (props) => {
                     ))}
                 </tbody>
             </table>
+
         </div>
      );
 }

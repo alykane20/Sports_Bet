@@ -8,15 +8,6 @@
     margin-right: auto;
 }
 
-
-.button{
-    border-radius: 14px;
-}
-
-.button:hover{
-    cursor: pointer;
-}
-
 .row{
     text-align: center;  
 }

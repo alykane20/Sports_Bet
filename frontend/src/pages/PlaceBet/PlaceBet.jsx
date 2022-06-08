@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import { useState, useEffect } from "react";
+import './PlaceBet.css'
 
 const PlaceBet = (props) => {
     const [pick, setPick] = useState('');
@@ -70,9 +71,10 @@ const PlaceBet = (props) => {
    
     return ( 
         <div>
+            <h3 className="header">Please fill in the following fields with exact team name and moneyline from previous page</h3>
             <form onSubmit={handleSubmit}>
                 <label>
-                    Pick to win: {" "}
+                    Team to win: {" "}
                     <input
                     type="text"
                     name="pick"
@@ -98,20 +100,20 @@ const PlaceBet = (props) => {
                     onChange={(event) => setMoney(event.target.value)}
                     />
                 </label>
-                <button type='submit'>Confirm bet</button>
+                <button className="button" type='submit'>Confirm bet</button>
             </form>
             <div>
-                <h2>If you're new to sports betting, here's some info to help get you started!</h2>
-                <p>What is the "moneyline"?</p>
-                <p>A negative number (ex. -330) denotes the favored team, while a positive one (ex. 200) is the underdog</p>
-                <p>The number itself shows how much you can win!</p>
-                <ul>
+                <h2 className="header">If you're new to sports betting, here's some info to help get you started!</h2>
+                <ul className="list-status">
+                    <li>What is the "moneyline"?</li>
+                    <li>A negative number (ex. -330) denotes the favored team, while a positive one (ex. 200) is the underdog</li>
+                    <li>The number itself shows how much you can win!</li>
                     <li>For the favored team, you'd have to bet the amount shown to win $100</li>
                     <li>To win $100 in the above example, you'd need to bet $330, for a total payout of $430</li>
                     <li>For the underdog, the positive number is what you'd win if you bet $100</li>
                     <li>So if you bet $100, you'd win $200, for total payout of $300</li>
+                    <li>Of course there are many other ways to bet, but that's the basics of the moneyline!</li>
                 </ul>
-                <p>Of course there are many other ways to bet, but that's the basics of the moneyline!</p>
             </div>
         </div>
      );

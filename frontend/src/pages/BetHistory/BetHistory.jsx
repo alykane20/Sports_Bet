@@ -29,7 +29,7 @@ const BetHistory = (props) => {
     return (  
     <div>
         <h2 className="header">Wins</h2>
-        <table className="table-items">
+        <table className="table">
                 <tbody>
                     <tr>
                         <th>Home Team</th>
@@ -52,7 +52,7 @@ const BetHistory = (props) => {
                 </tbody>
             </table>
             <h2 className="header" >Losses</h2>
-            <table className="table-items">
+            <table className="table">
                 <tbody>
                     <tr>
                         <th>Home Team</th>
@@ -62,7 +62,7 @@ const BetHistory = (props) => {
                         <th>Amount Bet</th>
                     </tr>
                    {bets.map((bet)=>{
-                    if (bet.pick != bet.winning_team){
+                    if (bet.pick != bet.winning_team && bet.completed === true){
                         return(
                     <tr key={bet.id}>
                         <td className="row">{bet.team_one}</td>

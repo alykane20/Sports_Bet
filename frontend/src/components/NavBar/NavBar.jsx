@@ -20,7 +20,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-        <Link to="/resolve" style={{ textDecoration: "none", color: "white" }}>Recent results
+        <Link to="/results" style={{ textDecoration: "none", color: "white" }}>Recent results
           </Link>
         </li>
         <li>

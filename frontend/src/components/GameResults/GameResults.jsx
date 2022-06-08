@@ -1,10 +1,12 @@
 import ResultSearchBar from "../SearchBar/ResultSearchBar";
+import './GameResults.css'
+
 const GameResults = (props) => {
     
     return ( 
         <div>
             <ResultSearchBar getGameResults={props.getGameResults} />
-            <table>
+            <table className="table">
                 <tbody>
                     <tr>
                         <th>Sport</th>
@@ -17,11 +19,11 @@ const GameResults = (props) => {
                     if (game.completed == true){
                         return(
                     <tr key={game.id}>
-                        <td>{game.sport_title}</td>
-                        <td>{game.home_team}</td>
-                        <td>{game.scores[0].score}</td>
-                        <td>{game.away_team}</td>
-                        <td>{game.scores[1].score}</td>
+                        <td className="row">{game.sport_title}</td>
+                        <td className="row">{game.home_team}</td>
+                        <td className="row">{game.scores[0].score}</td>
+                        <td className="row">{game.away_team}</td>
+                        <td className="row">{game.scores[1].score}</td>
                     </tr>
                     )}})}
                 </tbody>

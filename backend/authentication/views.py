@@ -52,7 +52,7 @@ def update_funds(request):
 @permission_classes([IsAuthenticated])
 def resolve_win(request):       
     if request.method == 'PATCH':
-        request.user.fund_balance += int(request.data['payout'])
+        request.user.fund_balance += float(request.data['payout'])
         request.user.total_bets_won += 1
         request.user.save()
         return Response(status=status.HTTP_200_OK)

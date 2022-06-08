@@ -7,8 +7,8 @@ class User(AbstractUser):
     fund_balance = models.IntegerField(default=100)
     total_bets_won = models.IntegerField(default=0)
     status = models.CharField(default="Newbie", max_length=100)
-    current_bets = models.CharField(max_length=500)
-    past_results = models.CharField(max_length=500)
+    current_bets = models.CharField(default= "None",max_length=500)
+    past_results = models.CharField(default= "None", max_length=500)
     
     
     '''

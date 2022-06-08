@@ -105,7 +105,7 @@ const [bets, setBets] = useState([]);
   return (  
       <div>
       <div>
-            <ResultSearchBar getGameResults={props.getGameResults} />
+            {/* <ResultSearchBar getGameResults={props.getGameResults} /> */}
             <table className="table-items">
                 <tbody>
                     <tr>

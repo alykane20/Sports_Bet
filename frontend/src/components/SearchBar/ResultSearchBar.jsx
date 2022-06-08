@@ -1,22 +1,42 @@
-import React, {useState} from "react";
+import './SearchBar.css'
+
 
 
 const ResultSearchBar = (props) => {
-    const [searchTerm, setSearchTerm] = useState('')
-    function handleSubmit(event){
-        event.preventDefault()
-        props.getGameResults(searchTerm)
-    }
+    // const [searchTerm, setSearchTerm] = useState('')
+    
+    // function handleSubmit(event){
+    //     event.preventDefault()
+    //     props.getGameResults(searchTerm)
+    // }
 
+    const handleClickBaseball = (e) => {
+        e.preventDefault();
+        props.getGameResults("baseball_mlb")
+      }
+    const handleClickBasketball = (e) => {
+        e.preventDefault();
+        props.getGameResults("basketball_nba")
+      }
+     const handleClickHockey = (e) => {
+        e.preventDefault();
+        props.getGameResults("icehockey_nhl")
+      }
+    const handleClickSoccer = (e) => {
+        e.preventDefault();
+        props.getGameResults("soccer_epl")
+      }
     return (  
         <div>
-            <p>Current seach options: basketball_nba, baseball_mlb, icehockey_nhl, soccer_epl</p>
-            <form onSubmit={(event)=>handleSubmit(event)}>
-             <input type="text" placeholder="Choose a current sport" onChange={(event) =>{setSearchTerm(event.target.value)}}/>
-            
-                <button className="button" type="submit">Search</button>
-            
-            </form>
+            <div className='container'>
+            <button className='items' onClick={(event) => handleClickBaseball(event)}> Search MLB </button>
+            <button className='items' onClick={(event) => handleClickBasketball(event)}> Search NBA </button>
+            <button className='items' onClick={(event) => handleClickHockey(event)}> Search NHL </button>
+            <button className='items'onClick={(event) => handleClickSoccer(event)}> Search EPL </button>
+            </div>
+            <p>
+            <small>*more sports coming soon!</small>
+            </p>
         </div>
     );
 }

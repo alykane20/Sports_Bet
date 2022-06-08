@@ -11,3 +11,9 @@
 .row{
     text-align: center;  
 }
+
+.history-button{
+    border-radius: 14px;
+    height: 40px;
+    width: 25em;
+}

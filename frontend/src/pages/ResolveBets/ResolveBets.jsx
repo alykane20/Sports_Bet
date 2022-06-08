@@ -97,14 +97,20 @@ const [bets, setBets] = useState([]);
     }
   };
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    navigate("/history")
-  }
+  // const handleClick = (e) => {
+  //   e.preventDefault();
+  //   navigate("/history")
+  // }
 
   return (  
       <div>
       <div>
+      <ul>
+      <li><Link to="/history" >View your bet history </Link></li>
+      <li><Link to="/results" >Set new sport to check </Link></li>
+      <li><Link to="/account" >Return to account </Link></li>
+      </ul>
+      {/* <button className="history-button" onClick={(event) => handleClick(event)}> View your bet history </button> */}
             {/* <ResultSearchBar getGameResults={props.getGameResults} /> */}
             <table className="table-items">
                 <tbody>
@@ -129,8 +135,6 @@ const [bets, setBets] = useState([]);
                 </tbody>
             </table>
         </div>
-      <button className="button" onClick={(event) => handleClick(event)}> View your bet history </button>
-      <Link to="/account" >Return to account </Link>
       </div>
   );
 }

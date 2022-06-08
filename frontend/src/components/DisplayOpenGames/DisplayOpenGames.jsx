@@ -10,6 +10,15 @@ const DisplayOpenGames  = (props) => {
     props.setSelectedGame(game)
     navigate("/placebet")
 }
+// const iso = "2022-06-09T01:00:00Z"
+// const date = new Date(iso)
+// console.log(date)
+
+// function displayDate(isoDate){
+//     const date = new Date(isoDate)
+//     return date
+// }
+
     return( 
         <div>
             <SearchBar getEvents={props.getEvents}/>
@@ -27,7 +36,7 @@ const DisplayOpenGames  = (props) => {
                    {props.getGames.map((game)=>(
                     <tr key={game.id}>
                         <td className="row" >{game.sport_title}</td>
-                        <td className="row">{game.commence_time}</td>
+                        <td className="row">{Date(game.commence_time)}</td>
                         <td className="row">{game.bookmakers[0].markets[0].outcomes[0].name}</td>
                         <td className="row">{game.bookmakers[0].markets[0].outcomes[0].price}</td>
                         <td className="row">{game.bookmakers[0].markets[0].outcomes[1].name}</td>

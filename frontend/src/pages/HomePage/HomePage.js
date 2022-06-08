@@ -49,13 +49,15 @@ const HomePage = () => {
           bets.map((bet) => {
             if(bet.completed ==false){
               return(
-          <p key={bet.id}>
-            {bet.pick}:  Payout ${bet.payout} 
-          </p>
+             <ul className="bets">  
+              <li key={bet.id}>
+              {bet.pick}:  Payout ${bet.payout} 
+              </li>
+            </ul> 
 )}})}
       <button className="button" onClick={(event) => handleAccountClick(event)}> View your account</button>
-      <button className="button" onClick={(event) => handleFundClick(event)}> Add funds to account</button>
-      <button className="button" onClick={(event) => handleClick(event)}> Check to see if you won</button>
+      <button className="button" onClick={(event) => handleClick(event)}> Check your bets</button>
+      <button className="button" onClick={(event) => handleFundClick(event)}> Add funds </button>
       </div>
     </div>
   );

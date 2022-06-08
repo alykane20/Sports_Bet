@@ -43,8 +43,8 @@ function App() {
           let response = await axios.get(`https://api.the-odds-api.com/v4/sports/${searchTerm}/odds/?apiKey=${KEY}&regions=us&markets=h2h&oddsFormat=american`)
           setGetGames(response.data)
       }
-      async function getGameResults(searchTerm = 'basketball_nba'){
-        let response = await axios.get(`https://api.the-odds-api.com/v4/sports/${searchTerm}/scores/?daysFrom=2&apiKey=${KEY}`);
+      async function getGameResults(searchTerm = 'baseball_mlb'){
+        let response = await axios.get(`https://api.the-odds-api.com/v4/sports/${searchTerm}/scores/?daysFrom=3&apiKey=${KEY}`);
         setResults(response.data)
     }
 

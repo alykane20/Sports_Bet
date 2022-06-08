@@ -1,4 +1,5 @@
 import ResultSearchBar from "../SearchBar/ResultSearchBar";
+import {Link} from "react-router-dom";
 import './GameResults.css'
 
 const GameResults = (props) => {
@@ -28,6 +29,8 @@ const GameResults = (props) => {
                     )}})}
                 </tbody>
             </table>
+            <p>If you have an account, select sport and click <Link to="/resolve" >HERE</Link> to resolve any bets you have in that sport!</p>
+            
         </div>
      );
 }

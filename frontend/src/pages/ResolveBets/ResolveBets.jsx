@@ -97,10 +97,7 @@ const [bets, setBets] = useState([]);
     }
   };
 
-  // const handleClick = (e) => {
-  //   e.preventDefault();
-  //   navigate("/history")
-  // }
+  
 
   return (  
       <div>
@@ -110,8 +107,6 @@ const [bets, setBets] = useState([]);
       <li><Link to="/results" >Set new sport to check </Link></li>
       <li><Link to="/account" >Return to account </Link></li>
       </ul>
-      {/* <button className="history-button" onClick={(event) => handleClick(event)}> View your bet history </button> */}
-            {/* <ResultSearchBar getGameResults={props.getGameResults} /> */}
             <table className="table-items">
                 <tbody>
                     <tr>

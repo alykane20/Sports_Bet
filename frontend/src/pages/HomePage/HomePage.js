@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './HomePage.css';
 
 const HomePage = () => {
@@ -55,9 +55,11 @@ const HomePage = () => {
               </li>
             </ul> 
 )}})}
-      <button className="button" onClick={(event) => handleAccountClick(event)}> View your account</button>
-      <button className="button" onClick={(event) => handleClick(event)}> Check your bets</button>
-      <button className="button" onClick={(event) => handleFundClick(event)}> Add funds </button>
+        <div className="buttons">
+          <button className="button" onClick={(event) => handleAccountClick(event)}> View your account</button>
+          <button className="button" onClick={(event) => handleClick(event)}> Check your bets</button>
+          <button className="button" onClick={(event) => handleFundClick(event)}> Add funds </button>
+        </div>
       </div>
     </div>
   );

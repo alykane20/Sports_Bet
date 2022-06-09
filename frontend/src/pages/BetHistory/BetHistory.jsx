@@ -32,11 +32,11 @@ const BetHistory = (props) => {
         <table className="table">
                 <tbody>
                     <tr>
-                        <th>Home Team</th>
-                        <th>Away Team</th>
-                        <th>Game Winner</th>
-                        <th>Amount Bet</th>
-                        <th>Total payout</th>
+                        <th className="title">Home Team</th>
+                        <th className="title">Away Team</th>
+                        <th className="title">Game Winner</th>
+                        <th className="title">Amount Bet</th>
+                        <th className="title">Total payout</th>
                     </tr>
                    {bets.map((bet)=>{
                     if (bet.pick == bet.winning_team){
@@ -45,8 +45,8 @@ const BetHistory = (props) => {
                         <td className="row">{bet.team_one}</td>
                         <td className="row">{bet.team_two}</td>
                         <td className="row">{bet.winning_team}</td>
-                        <td className="row">{bet.amount_bet}</td>
-                        <td className="row">{bet.payout}</td>
+                        <td className="row">${bet.amount_bet}</td>
+                        <td className="row">${bet.payout}</td>
                     </tr>
                     )}})}
                 </tbody>
@@ -55,11 +55,11 @@ const BetHistory = (props) => {
             <table className="table">
                 <tbody>
                     <tr>
-                        <th>Home Team</th>
-                        <th>Away Team</th>
-                        <th>Game Winner</th>
-                        <th>Your Pick</th>
-                        <th>Amount Bet</th>
+                        <th className="title">Home Team</th>
+                        <th className="title">Away Team</th>
+                        <th className="title">Game Winner</th>
+                        <th className="title">Your Pick</th>
+                        <th className="title">Amount Bet</th>
                     </tr>
                    {bets.map((bet)=>{
                     if (bet.pick != bet.winning_team && bet.completed === true){
@@ -69,7 +69,7 @@ const BetHistory = (props) => {
                         <td className="row">{bet.team_two}</td>
                         <td className="row">{bet.winning_team}</td>
                         <td className="row">{bet.pick}</td>
-                        <td className="row">{bet.amount_bet}</td>
+                        <td className="row">${bet.amount_bet}</td>
                     </tr>
                     )}})}
                 </tbody>

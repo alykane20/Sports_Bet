@@ -28,14 +28,15 @@ const ResultSearchBar = (props) => {
       }
     return (  
         <div>
+            <h2 className='heading'>To see recent scores, click a sport to search</h2>
             <div className='container'>
             <button className='items' onClick={(event) => handleClickBaseball(event)}> Search MLB </button>
             <button className='items' onClick={(event) => handleClickBasketball(event)}> Search NBA </button>
             <button className='items' onClick={(event) => handleClickHockey(event)}> Search NHL </button>
             <button className='items'onClick={(event) => handleClickSoccer(event)}> Search EPL </button>
             </div>
-            <p>
-            <small>*more sports coming soon!</small>
+            <p className='more'>
+                <small>*more sports coming soon!</small>
             </p>
         </div>
     );

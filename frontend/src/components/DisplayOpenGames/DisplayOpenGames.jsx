@@ -1,23 +1,47 @@
 import SearchBar from "../SearchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
 import "./DisplayOpenGames.css";
+import { useState } from "react";
 
 const DisplayOpenGames  = (props) => {
     const navigate = useNavigate();
+    // const [gameStart, setGameStart] = useState([])
 
     const handleClick = (event, game)=> {
     event.preventDefault();
     props.setSelectedGame(game)
     navigate("/placebet")
 }
-// const iso = "2022-06-09T01:00:00Z"
-// const date = new Date(iso)
-// console.log(date)
 
-// function displayDate(isoDate){
-//     const date = new Date(isoDate)
-//     return date
-// }
+{
+let gameTime = "2022-06-11T01:00:00Z"    
+let date = new Date(gameTime)
+console.log(date.toDateString())
+
+function displayDate(date){
+    let year = date.getFullYear();
+    let month = date.getMonth()+1;
+    let day = date.getDate()+1;
+    let hours = date.getHours(); 
+    let AmOrPm = hours >= 12 ? 'pm' : 'am';
+    hours = (hours % 12) || 12;
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
+        minutes = minutes + '0' ;
+      }
+    if (day < 10) {
+        day = '0' + day;
+      }
+      if (month < 10) {
+        month = '0' + month;
+      }
+    return month+'/'+day+'/'+year+' ' + hours + ":" + minutes + AmOrPm; 
+    
+}
+console.log("date")
+console.log(displayDate(date))
+}
+
 
     return( 
         <div>

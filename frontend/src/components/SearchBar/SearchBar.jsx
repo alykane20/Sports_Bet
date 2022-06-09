@@ -1,4 +1,4 @@
-
+import './SearchBar.css'
 import React, {useState} from "react";
 
 
@@ -11,11 +11,9 @@ const SearchBar = (props) => {
 
     return (  
         <form onSubmit={(event)=>handleSubmit(event)}>
-            <input type="text" placeholder="Ex: soccer, basketball" onChange={(event) =>{setSearchTerm(event.target.value)}}/>
-            
+            <input className='search-bar' type="text" placeholder="Ex: soccer, basketball" onChange={(event) =>{setSearchTerm(event.target.value)}}/>
             <button className="button" type="submit">Search</button>
-            
-        </form>
+       </form>
     );
 }
  

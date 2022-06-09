@@ -6,3 +6,19 @@
 .items{
     border-radius: 14px;
 }
+
+.more{
+   margin-left: 75%;
+}
+
+.heading{
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.search-bar{
+width: 15%;
+margin-right: 7px;
+margin-left: 70%;
+}
+

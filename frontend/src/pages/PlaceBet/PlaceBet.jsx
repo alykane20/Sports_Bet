@@ -72,36 +72,38 @@ const PlaceBet = (props) => {
     return ( 
         <div>
             <h3 className="header">Please fill in the following fields with exact team name and moneyline from previous page</h3>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Team to win: {" "}
-                    <input
-                    type="text"
-                    name="pick"
-                    value={pick}
-                    onChange={(event) => setPick(event.target.value)}
-                    />
-                </label>
-                <label>
-                    Amount to bet: {" "}
-                    <input
-                    type="number"
-                    name="amount_bet"
-                    value={amountBet}
-                    onChange={(event) => setAmountBet(event.target.value)}
-                    />                   
-                </label>
-                <label>
-                MoneyLine: {" "}
-                    <input
-                    type="number"
-                    name="payout"
-                    value={money}
-                    onChange={(event) => setMoney(event.target.value)}
-                    />
-                </label>
-                <button className="button" type='submit'>Confirm bet</button>
-            </form>
+            <div className="form">
+                <form onSubmit={handleSubmit}>
+                    <label>
+                        Team to win: {" "}
+                        <input
+                        type="text"
+                        name="pick"
+                        value={pick}
+                        onChange={(event) => setPick(event.target.value)}
+                        />
+                    </label>
+                    <label>
+                        Amount to bet: {" "}
+                        <input
+                        type="number"
+                        name="amount_bet"
+                        value={amountBet}
+                        onChange={(event) => setAmountBet(event.target.value)}
+                        />                   
+                    </label>
+                    <label>
+                    MoneyLine: {" "}
+                        <input
+                        type="number"
+                        name="payout"
+                        value={money}
+                        onChange={(event) => setMoney(event.target.value)}
+                        />
+                    </label>
+                    <button className="button" type='submit'>Confirm bet</button>
+                </form>
+            </div>
             <div>
                 <h2 className="header">If you're new to sports betting, here's some info to help get you started!</h2>
                 <ul className="list-status">

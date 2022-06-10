@@ -9,6 +9,9 @@ const BetHistory = (props) => {
     const [user, token] = useAuth();
     const [bets, setBets] = useState([]);
     const navigate = useNavigate();
+    const [wins, setWins] = useState([]);
+    const [losses, setLosses] = useState([]);
+    
   
     useEffect(() => {
       const fetchBets = async () => {
@@ -19,6 +22,7 @@ const BetHistory = (props) => {
             },
           });
           setBets(response.data);
+          winningPercent()
         } catch (error) {
           console.log(error.response.data);
         }
@@ -26,8 +30,22 @@ const BetHistory = (props) => {
       fetchBets();
     }, [token]);
 
+    function winningPercent(){
+      let victory = bets.filter((el) =>{
+      if(el.pick == el.winning_team){return true}
+    })
+      setWins(victory.length)
+      let defeat = bets.filter((el) =>{
+        if (el.pick != el.winning_team){return true}
+    })
+
+      setLosses(defeat.length)
+
+    }
+
     return (  
     <div>
+      <div className="percent">Overall win percentage: {parseInt((wins / losses)*100)}%</div>
         <h2 className="header">Wins</h2>
         <table className="table">
                 <tbody>

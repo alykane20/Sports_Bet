@@ -44,9 +44,10 @@ return (
   {userData &&
           userData.map((user) => (
           <div className="account" key={user.id}>
-           <p>Balance: ${user.fund_balance}</p>  
-           <p>Total wins: {user.total_bets_won}</p>
-           <p>Status: {user.status}</p>
+            <p><Link to='/history'>Betting history</Link></p>
+            <p>Balance: ${user.fund_balance}</p>  
+            <p>Total wins: {user.total_bets_won}</p>
+            <p>Status: {user.status}</p>
            <button className="button" onClick={() => handleClick(user)}>Check status</button>
           </div>
           ))}

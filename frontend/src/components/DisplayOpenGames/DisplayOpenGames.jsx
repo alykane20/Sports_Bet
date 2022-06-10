@@ -11,7 +11,7 @@ const DisplayOpenGames  = (props) => {
     event.preventDefault();
     props.setSelectedGame(game)
     navigate("/placebet")
-}
+    }
 
 {
 let gameTime = "2022-06-11T01:00:00Z"    

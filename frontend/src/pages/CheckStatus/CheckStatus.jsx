@@ -3,6 +3,7 @@ import {useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import { useNavigate, Link, useParams, useLocation } from "react-router-dom";
+import './CheckStatus.css'
 
 const CheckStatus = (props) => {
 const [user, token] = useAuth();
@@ -64,10 +65,11 @@ const handleClick = (e) => {
   }
     return ( 
         <div> 
-            <h2>Your current status is {state.status}</h2>
-            <p>If you think you have enough wins, check here to see if you can move up a level!</p>
-            <button className="button" onClick={(event) => handleClick(event)}> Level up!</button>
-
+            <h2 className="header">Your current status is: {state.status}</h2>
+            <div className="content">
+                <p>If you think you have enough wins, check here to see if you can move up a level!</p>
+                <button className="button" onClick={(event) => handleClick(event)}> Level up!</button>
+            </div>
         </div>
      );
 }

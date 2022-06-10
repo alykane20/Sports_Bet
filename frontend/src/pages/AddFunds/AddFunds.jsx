@@ -33,9 +33,9 @@ const handleSubmit = (e) => {
 
     return ( 
        <div className="display">
-       <p className="title">If your balance is getting low, add some funds to continue betting!</p>
+       <h2 className="title-fund">If your balance is getting low, add some funds to continue betting!</h2>
        <form onSubmit={handleSubmit}>
-            <label>
+            <label className="search-field">
               Amount to add:
               <input
               type="number"

@@ -10,11 +10,11 @@ const GameResults = (props) => {
             <table className="table">
                 <tbody>
                     <tr>
-                        <th>Sport</th>
-                        <th>Home Team</th>
-                        <th>Score</th>
-                        <th>Away Team</th>
-                        <th>Score</th>
+                        <th className="title">Sport</th>
+                        <th className="title">Home Team</th>
+                        <th className="title">Score</th>
+                        <th className="title">Away Team</th>
+                        <th className="title">Score</th>
                     </tr>
                    {props.results.map((game)=>{
                     if (game.completed == true){
@@ -29,7 +29,7 @@ const GameResults = (props) => {
                     )}})}
                 </tbody>
             </table>
-            <p>If you have an account, select sport and click <Link to="/resolve" >HERE</Link> to resolve any bets you have in that sport!</p>
+            <p className="header">If you have an account, select sport and click <Link to="/resolve" >HERE</Link> to resolve any bets you have in that sport!</p>
             
         </div>
      );

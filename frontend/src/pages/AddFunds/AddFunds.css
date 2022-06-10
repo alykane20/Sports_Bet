@@ -6,6 +6,10 @@
     text-align: center;
 }
 
-.title{
+.title-fund{
     margin-bottom: 15px;
+}
+
+.search-field{
+    margin-right: 5px;
 }

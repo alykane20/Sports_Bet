@@ -50,21 +50,23 @@ return (
            <button className="button" onClick={() => handleClick(user)}>Check status</button>
           </div>
           ))}
-        <h2>About your account:</h2>
-        <div className="about">
-            <p>Balance = Funds currently available for you to place bets with</p>
-            <p>Total wins = This includes all winning bets since account was opened (whether you won $1 or $100,000)</p>
-            <p>Track your status:</p>
-             <ul className="list-status">
-            <li>0-9 wins = Newbie</li>
-            <li>10 wins = Drafted</li>
-            <li>25 wins = Rookie</li>
-            <li>50 wins = Starter</li>
-            <li>100 = Pro</li>
-            <li>250 = Star</li>
-            <li>500 = MVP</li>
-            <li>1000 = All-star</li>
-        </ul>
+        <div className="text">
+            <h2>About your account:</h2>
+            <div className="about">
+                <p>Balance = Funds currently available for you to place bets with</p>
+                <p>Total wins = This includes all winning bets since account was opened (whether you won $1 or $100,000)</p>
+                <p>Track your status:</p>
+                    <ul className="list-status">
+                        <li>0-9 wins = Newbie</li>
+                        <li>10 wins = Drafted</li>
+                        <li>25 wins = Rookie</li>
+                        <li>50 wins = Starter</li>
+                        <li>100 = Pro</li>
+                        <li>250 = Star</li>
+                        <li>500 = MVP</li>
+                        <li>1000 = All-star</li>
+                    </ul>
+            </div>
         </div>
     </div>
     )

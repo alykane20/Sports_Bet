@@ -28,7 +28,7 @@ const ResultSearchBar = (props) => {
       }
     return (  
         <div>
-            <h2 className='heading'>To see recent scores, click a sport to search</h2>
+            <h2 className='heading'>To see recent scores, click a sport to search:</h2>
             <div className='container'>
             <button className='items' onClick={(event) => handleClickBaseball(event)}> Search MLB </button>
             <button className='items' onClick={(event) => handleClickBasketball(event)}> Search NBA </button>

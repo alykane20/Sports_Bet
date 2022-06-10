@@ -50,12 +50,12 @@ console.log(displayDate(date))
             <table className="table-items">
                 <tbody>
                     <tr>
-                        <th>Sport</th>
-                        <th>Game Date</th>
-                        <th>Home Team</th>
-                        <th>MoneyLine</th>
-                        <th>Away Team</th>
-                        <th>MoneyLine</th>
+                        <th className="title">Sport</th>
+                        <th className="title">Game Date</th>
+                        <th className="title">Home Team</th>
+                        <th className="title">MoneyLine</th>
+                        <th className="title">Away Team</th>
+                        <th className="title">MoneyLine</th>
                     </tr>
                    {props.getGames.map((game)=>(
                     <tr key={game.id}>

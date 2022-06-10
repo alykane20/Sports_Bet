@@ -44,14 +44,14 @@ const HomePage = () => {
     <div className="container">
       <div className="items">
         <h1>Welcome back, {user.username}!</h1>
-        <p>Open bets:</p>
+        <p className="welcome">Open bets:</p>
         {bets &&
           bets.map((bet) => {
             if(bet.completed ==false){
               return(
              <ul className="bets">  
               <li key={bet.id}>
-              {bet.pick}:  Payout ${bet.payout} 
+              {bet.pick}: Bet ${bet.amount_bet} - to win  ${bet.payout} 
               </li>
             </ul> 
 )}})}

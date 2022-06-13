@@ -44,7 +44,7 @@ function App() {
           setGetGames(response.data)
       }
       async function getGameResults(searchTerm = 'baseball_mlb'){
-        let response = await axios.get(`https://api.the-odds-api.com/v4/sports/${searchTerm}/scores/?daysFrom=1&apiKey=${KEY}`);
+        let response = await axios.get(`https://api.the-odds-api.com/v4/sports/${searchTerm}/scores/?daysFrom=2&apiKey=${KEY}`);
         setResults(response.data)
     }
 

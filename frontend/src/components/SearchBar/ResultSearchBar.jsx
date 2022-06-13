@@ -33,7 +33,7 @@ const ResultSearchBar = (props) => {
             <button className='items' onClick={(event) => handleClickBaseball(event)}> Search MLB </button>
             <button className='items' onClick={(event) => handleClickBasketball(event)}> Search NBA </button>
             <button className='items' onClick={(event) => handleClickHockey(event)}> Search NHL </button>
-            <button className='items'onClick={(event) => handleClickSoccer(event)}> Search EPL </button>
+            {/* <button className='items'onClick={(event) => handleClickSoccer(event)}> Search EPL </button> */}
             </div>
             <p className='more'>
                 <small>*more sports coming soon!</small>

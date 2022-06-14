@@ -1,3 +1,25 @@
 .error {
   color: red;
 }
+
+.container-login{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 40px;
+}
+
+.item-login{
+display: inline;
+width: 30%;
+}
+
+.items-form{
+display: inline;
+width: 50%;
+}
+
+
+.list{
+  display: block;
+  list-style-type:disc;
+}

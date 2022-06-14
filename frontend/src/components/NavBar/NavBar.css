@@ -29,7 +29,17 @@ li {
   cursor: pointer;
 }
 
-.brand {
+.brand{
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1.75rem;
+   
+}
+
+
+.sports-title{
+  background-image:linear-gradient(white,#FF8200, #9a3f06);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3.5rem;
+  font-weight: bolder;
 }

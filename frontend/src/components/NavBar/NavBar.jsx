@@ -10,17 +10,18 @@ const Navbar = () => {
   return (
     <div className="navBar">
       <ul>
+        <li className="sports-title"> SportsBet</li>
         <li className="brand">
-          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-            <b>BET! Sports betting made fun!</b>
+          <Link to="/" style={{ textDecoration: "underline", color: "white" }}>
+            Home
           </Link>
         </li>
-        <li>
-          <Link to="/games" style={{ textDecoration: "none", color: "white" }}>Upcoming games
+        <li className="brand">
+          <Link to="/games" style={{ textDecoration: "underline", color: "white" }}>Upcoming games
           </Link>
         </li>
-        <li>
-        <Link to="/results" style={{ textDecoration: "none", color: "white" }}>Recent results
+        <li className="brand">
+        <Link to="/results" style={{ textDecoration: "underline", color: "white" }}>Recent results
           </Link>
         </li>
         <li>

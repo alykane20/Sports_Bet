@@ -9,7 +9,6 @@
 .items{
     display: inline;
     flex: 1 1 0;
-
 }
 
 .list-status{
@@ -21,7 +20,9 @@
 .account {
     margin-left: 7%;
 }
-
+.top{
+    margin-left: 5%;
+}
 .bets{
     justify-content: center;
 }
@@ -33,6 +34,6 @@
 }
 
 .welcome{
- font-size: x-large;
+ margin-top: 15px;
  text-decoration: underline
 }

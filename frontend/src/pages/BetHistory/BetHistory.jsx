@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import './BetHistory.css'
 
 const BetHistory = (props) => {
@@ -47,6 +47,7 @@ const BetHistory = (props) => {
     return (  
     <div>
       {/* <div className="percent">Overall win percentage: {parseInt((wins / losses)*100)}%</div> */}
+      <Link to="/account" >Return to account </Link>
         <h2 className="header">Wins</h2>
         <table className="table">
                 <tbody>

@@ -41,9 +41,11 @@ const HomePage = () => {
   }
 
   return (
+    <div>
+    <h1 className="top"> Sports betting made fun!</h1>
     <div className="container">
       <div className="items">
-        <h1>Welcome back, {user.username}!</h1>
+        <h3>Welcome back, {user.username}!</h3>
         <p className="welcome">Open bets:</p>
         {bets &&
           bets.map((bet) => {
@@ -61,6 +63,7 @@ const HomePage = () => {
           <button className="button" onClick={(event) => handleFundClick(event)}> Add funds </button>
         </div>
       </div>
+    </div>
     </div>
   );
      };

@@ -1,3 +1,7 @@
+/* .back{
+
+} */
+
 .button{
     border-radius: 14px;
 }
@@ -14,6 +18,7 @@
     overflow: auto;
     text-align: center;
     justify-content: center;
+    
 }
 
 .items{

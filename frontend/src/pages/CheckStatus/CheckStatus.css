@@ -1,12 +1,42 @@
 .header{
-    text-align: center;
-}
-
-.content{
-    text-align: center;
+    display: inline;
 }
 
 .list-status{
     display: block;
-    list-style-type:circle;
+    list-style-type:none;
 }
+
+.contain {
+    position: relative;
+    display: inline;
+    text-align: center;
+    color: white;
+    margin-right: 30px;
+  }
+
+  .centered {
+    
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .checkbox{
+      display: flex;
+      justify-content: space-around;
+  }
+
+  .track{
+      font-size: xx-large;
+  }
+
+  .pic{
+      margin-top: 7%;
+  }
+
+  .quote{
+      text-align: center;
+      
+  }

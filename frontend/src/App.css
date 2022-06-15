@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
 body {
-  background: linear-gradient(rgb(243, 241, 241), rgb(231, 196, 130), #FF8200);
+  background: radial-gradient(rgb(243, 241, 241), rgb(231, 196, 130), #FF8200);
   background-repeat: no-repeat;
   height:100%;
   width: 100%;

@@ -41,7 +41,7 @@ const HomePage = () => {
   }
 
   return (
-    <div>
+    <div className="back">
     <h1 className="top"> Sports betting made fun!</h1>
     <div className="container-one">
       <div className="items">

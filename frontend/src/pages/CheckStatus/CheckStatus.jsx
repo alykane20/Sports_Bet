@@ -67,9 +67,20 @@ const handleClick = (e) => {
         <div> 
             <h2 className="header">Your current status is: {state.status}</h2>
             <div className="content">
-                <p>If you think you have enough wins, check here to see if you can move up a level!</p>
+                <p>If you think you have enough wins, click below!</p>
                 <button className="button" onClick={(event) => handleClick(event)}> Level up!</button>
             </div>
+            <p>Track your status:</p>
+                    <ul className="list-status">
+                        <li>0-9 wins = Newbie</li>
+                        <li>10 wins = Drafted</li>
+                        <li>25 wins = Rookie</li>
+                        <li>50 wins = Starter</li>
+                        <li>100 = Pro</li>
+                        <li>250 = Star</li>
+                        <li>500 = MVP</li>
+                        <li>1000 = All-star</li>
+                    </ul>
         </div>
      );
 }

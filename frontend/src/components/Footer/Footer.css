@@ -3,7 +3,26 @@ footer {
   bottom: 0;
   font-size: 1rem;
   left: 0;
-  padding: 1rem;
+  padding: .5rem;
   text-align: center;
   width: 100%;
+  margin-bottom: 0px;
+}
+
+.box{
+  display: flex;
+  justify-content: space-around;
+}
+
+.content-one{
+  display: inline;
+  font-size: x-large;
+  margin-top: 20px;
+}
+.content-two{
+  display: inline;
+  margin-top: 25px;
+}
+.content-three{
+  display: inline;
 }

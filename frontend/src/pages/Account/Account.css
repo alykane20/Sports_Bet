@@ -1,5 +1,9 @@
 .text{
     margin-left: 2%;
+    border: solid;
+    max-width: 600px;
+    padding: 10px;
+    margin-top: 2%;
 }
 
 .account{
@@ -11,8 +15,5 @@
     font-size: small;
 }
 
-
-.list-status{
-    display: block;
-    list-style-type:circle;
-}
+b{
+text-decoration: underline}

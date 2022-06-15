@@ -33,20 +33,26 @@ const handleSubmit = (e) => {
 
     return ( 
        <div className="display">
-       <h2 className="title-fund">If your balance is getting low, add some funds to continue betting!</h2>
-       <form onSubmit={handleSubmit}>
-            <label className="search-field">
-              Amount to add:
-              <input
-              type="number"
-              name="fund_balance"
-              value={fundBalance}
-              onChange={(event) => setFundBalance(event.target.value)}
-              />
-            </label>
-            <button className="button" type="submit">Deposit</button>
-      </form>
-      <img src="/track.jpg" alt="Zoomed in picture of running track" width="200px" height="200px"/>
+        <h2 className="title-fund">If your balance is getting low, add some funds to continue betting!</h2>
+           <div classname="fundbox">
+                <form  onSubmit={handleSubmit}>
+                <label className="search-field">
+                Amount to add:  $
+                <input
+                type="number"
+                name="fund_balance"
+                value={fundBalance}
+                onChange={(event) => setFundBalance(event.target.value)}
+                />
+                </label>
+                <button className="button" type="submit">Deposit</button>
+                </form>
+            </div>  
+        <div className="box">
+            <img src="https://www.thesportsgeek.com/app/uploads/2020/01/sports-balls-money-pile.jpg" alt="sports balls and money" width="300px" height="250px"/>
+            <img src="https://www.brainyquote.com/photos_tr/en/w/waynegretzky/378694/waynegretzky1-2x.jpg" alt="Gretzy quote" width="350px" height=" 250px"/>
+            <img src="https://miro.medium.com/max/1400/0*aRPRErwCAUxmnFRL.jpg" alt="athletes and cash" width="300px" height="250px"/>
+         </div>
       </div>
      );
 }

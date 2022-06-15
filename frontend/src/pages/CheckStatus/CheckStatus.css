@@ -5,3 +5,8 @@
 .content{
     text-align: center;
 }
+
+.list-status{
+    display: block;
+    list-style-type:circle;
+}

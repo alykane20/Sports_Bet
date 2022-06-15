@@ -43,7 +43,7 @@ const HomePage = () => {
   return (
     <div>
     <h1 className="top"> Sports betting made fun!</h1>
-    <div className="container">
+    <div className="container-one">
       <div className="items">
         <h2>Welcome back, {user.username}!</h2>
         <p className="welcome">Open bets:</p>

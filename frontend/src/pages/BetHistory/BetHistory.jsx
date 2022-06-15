@@ -22,7 +22,7 @@ const BetHistory = (props) => {
             },
           });
           setBets(response.data);
-          winningPercent()
+          winningPercent(response.data)
         } catch (error) {
           console.log(error.response.data);
         }
@@ -30,13 +30,13 @@ const BetHistory = (props) => {
       fetchBets();
     }, [token]);
 
-    function winningPercent(){
-      let victory = bets && bets.filter((el) =>{
+    function winningPercent(userBets){
+      let victory = userBets.filter((el) =>{
       if(el.pick == el.winning_team){return true}
     })
     console.log(victory.length)  
     setWins(victory.length)
-      let defeat = bets && bets.filter((el) =>{
+      let defeat = userBets.filter((el) =>{
         if (el.pick != el.winning_team){return true}
     })
     console.log(defeat.length) 
@@ -46,7 +46,7 @@ const BetHistory = (props) => {
 
     return (  
     <div>
-      {/* <div className="percent">Overall win percentage: {parseInt((wins / losses)*100)}%</div> */}
+      <div className="percent">Overall win percentage: {parseInt((wins / (wins+losses))*100)}%</div>
       <Link to="/account" >Return to account </Link>
         <h2 className="header">Wins</h2>
         <table className="table">

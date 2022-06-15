@@ -46,6 +46,7 @@ const handleSubmit = (e) => {
             </label>
             <button className="button" type="submit">Deposit</button>
       </form>
+      <img src="/track.jpg" alt="Zoomed in picture of running track" width="200px" height="200px"/>
       </div>
      );
 }

@@ -48,7 +48,7 @@ const BetHistory = (props) => {
     <div>
       <div className="percent">Overall win percentage: {parseInt((wins / (wins+losses))*100)}%</div>
       <Link to="/account" >Return to account </Link>
-        <h2 className="header">Wins</h2>
+        <h2 className="hdr">Wins</h2>
         <table className="table">
                 <tbody>
                     <tr>
@@ -71,7 +71,7 @@ const BetHistory = (props) => {
                     )}})}
                 </tbody>
             </table>
-            <h2 className="header" >Losses</h2>
+            <h2 className="hdr" >Losses</h2>
             <table className="table">
                 <tbody>
                     <tr>

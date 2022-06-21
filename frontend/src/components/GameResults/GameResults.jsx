@@ -29,7 +29,7 @@ const GameResults = (props) => {
                     )}})}
                 </tbody>
             </table>
-            <p className="header">If you have an account, select sport and click <Link to="/resolve" >HERE</Link> to resolve any bets you have in that sport!</p>
+            <p className="hdr">If you have an account, select sport and click <Link to="/resolve" >HERE</Link> to resolve any bets you have in that sport!</p>
             
         </div>
      );

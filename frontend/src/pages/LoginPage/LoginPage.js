@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react";
+import Footer from "../../components/Footer/Footer";
 import AuthContext from "../../context/AuthContext";
 import useCustomForm from "../../hooks/useCustomForm";
 import { Link } from "react-router-dom";
@@ -61,6 +62,7 @@ const LoginPage = () => {
         </div>
       </div>
     </div>
+    <Footer />
   </div>
   );
 };

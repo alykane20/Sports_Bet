@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import Footer from "../../components/Footer/Footer";
 import './HomePage.css';
 
 const HomePage = () => {
@@ -64,6 +65,7 @@ const HomePage = () => {
         </div>
       </div>
     </div>
+    <Footer />
     </div>
   );
      };

@@ -75,7 +75,7 @@ function App() {
               {selectedGame && <PlaceBet selectedGame={selectedGame} />}
             </PrivateRoute>}/>
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

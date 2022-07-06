@@ -18,6 +18,6 @@
     font-size: large;
 }
 
-/* .percent{
-    font-weight: bolder;
-} */
+.percent{
+    margin-left: 2%;
+}

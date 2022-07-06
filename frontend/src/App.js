@@ -39,7 +39,7 @@ function App() {
       getGameResults()
         }, [])
 
-      async function getEvents(searchTerm = 'basketball'){
+      async function getEvents(searchTerm = 'baseball_mlb'){
           let response = await axios.get(`https://api.the-odds-api.com/v4/sports/${searchTerm}/odds/?apiKey=${KEY}&regions=us&markets=h2h&oddsFormat=american`)
           setGetGames(response.data)
       }
